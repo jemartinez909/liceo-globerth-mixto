@@ -28,14 +28,13 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "sass",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+              "src/assets",
+              "src/favicon.ico"
+            ], 
             "styles": [
               "src/styles.sass"
             ],
+            "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -99,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "effe95b4-263a-447e-9a12-b3753a228a63"
   }
 }

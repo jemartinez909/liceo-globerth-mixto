@@ -8,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class App {
   protected title = 'globerth';
+
+  menuAbierto = false;
+
+  toggleMenu() {
+    this.menuAbierto = !this.menuAbierto;
+  }
+
+  cerrarMenu() {
+    this.menuAbierto = false;
+  }
+
 }

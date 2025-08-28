@@ -1,1 +1,105 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globales */
+// Variables globales/ Colores
+$green-dark: #1c321f
+$green-forest: #2d5a2e
+$green-primary: #008001
+$green-light: #a3d985
+$yellow-dark: #E2B204
+$yellow-light: #FFC800
+$white: #FFFFFF
+$black: #000000
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+//Estilos globales del archivo html y body
+html, body
+  width: 100%
+  min-height: 100vh
+  margin: 0
+  font-family: "Anaheim", sans-serif
+  overflow-x: hidden
+  scrollbar-color: $green-primary $white
+  scroll-behavior: smooth
+  top: 80px
+  
+body
+  display: flex
+  flex-direction: column
+
+main
+    background-color: $white
+
+section
+  display: flex
+  flex-direction: column 
+  align-items: center
+  justify-content: center
+  position: relative
+  width: 100%
+  min-height: 100vh
+  height: auto
+  overflow: hidden
+  padding: 2rem
+  margin: 0 auto
+
+
+h1, h2, h3, h4
+  font-family: "Convergence", sans-serif
+  font-weight: 400
+  margin: 0 0 1rem 0
+
+p
+  font-family: "Anaheim", sans-serif
+  font-size: 1.2rem
+  margin: 0 0 1rem 0
+
+a
+  font-family: "Convergence", sans-serif
+  text-decoration: none
+
+h1
+  font-size: 2.5rem
+h2
+  font-size: rem
+h3
+  font-size: 1.5rem
+h4
+  font-size: 1.2rem
+strong
+  color: $green-primary
+button
+  background: $green-primary  // verde
+  color: $white
+  font-size: 1rem
+  font-family: "Convergence", sans-serif
+  padding: 0.8rem 1.5rem
+  border: none
+  border-radius: 25px
+  cursor: pointer
+  transition: all 0.3s ease
+  &:hover
+    background: $green-dark
+
+/* Responsive */
+@media (max-width: 768px)
+  h1
+    font-size: 1.8rem
+  h2
+    font-size: 1rem
+  h3
+    font-size: 1rem
+  p
+    font-size: 1rem
+
+@media (max-width: 480px)
+  h1
+    font-size: 1.8rem
+  h2
+    font-size: 1.3rem
+  h3
+    font-size: 1rem
+  p
+    font-size: 0.9rem
