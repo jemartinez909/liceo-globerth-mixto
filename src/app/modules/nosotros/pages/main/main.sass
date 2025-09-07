@@ -1,0 +1,134 @@
+// Variables globales/ Colores
+$green-dark: #1c321f
+$green-forest: #2d5a2e
+$green-primary: #008001
+$green-light: #a3d985
+$yellow-dark: #E2B204
+$yellow-light: #FFC800
+$white: #FFFFFF
+$gray: #D9D9D9
+$black: #000000
+
+// Sección ¿Quiénes somos?
+.section-quienes
+    padding: 3rem 2rem
+
+    .content-section-1
+        display: grid
+        grid-template-columns: 1fr 1fr
+        gap: 2rem
+        width: 100%
+        max-width: 1200px
+        margin: 0 auto
+        align-items: stretch
+
+    // Contenedor de imágenes
+    .image-content
+    .image-grid
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: auto auto
+        grid-template-areas: "small1 small2" "large large"   // grande abajo
+        gap: 1rem
+
+        .image-box
+            border-radius: .5rem
+            overflow: hidden
+            display: flex
+            align-items: center
+            justify-content: center
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                display: block
+
+            &.small:nth-child(1)
+                grid-area: small1
+                height: 150px
+                border: 2px solid $green-primary
+
+            &.small:nth-child(2)
+                grid-area: small2
+                height: 150px
+                border: 2px solid $green-primary
+
+            &.large
+                grid-area: large
+                height: 250px
+                border: 2px solid $green-primary
+
+    // Contenedor de texto con scroll
+    .text-content
+        background: rgba(0, 100, 0, 0.05) // fondo suave
+        border-left: 4px solid $green-primary
+        padding: 1.5rem
+        border-radius: .5rem
+        overflow-y: auto
+        max-height: 400px
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1)
+
+        .title-section
+            text-align: left
+            align-items: center
+            margin-bottom: 1rem
+
+            h2
+                color: $green-primary
+                font-size: 1.5rem
+
+            p
+
+                margin-bottom: 1.5rem
+                line-height: 1.6
+                color: #333
+            
+// RESPONSIVE
+@media (max-width: 992px)
+    .content-section-1
+        grid-template-columns: 1fr  // texto e imágenes en una sola columna
+        gap: 2rem
+
+        .image-content
+            order: 1
+            .image-grid
+            grid-template-columns: 1fr 1fr
+            grid-template-areas: "small1 small2" "large large"
+            .small:nth-child(1),
+            .small:nth-child(2)
+                height: 120px
+            .large
+                height: 200px
+
+        .text-content
+            order: 2
+            max-height: 300px
+
+@media (max-width: 600px)
+    .content-section-1
+        gap: 1.5rem
+
+        .image-content
+            .image-grid
+            grid-template-columns: 1fr
+            grid-template-areas: "small1" "small2" "large"
+            .small:nth-child(1),
+            .small:nth-child(2)
+                height: 140px
+            .large
+                height: 180px
+
+        .text-content
+            max-height: none   
+            overflow-y: visible
+            text-align: center
+
+            .title-section
+            h2
+                font-size: 1.3rem
+
+
+
+    
+

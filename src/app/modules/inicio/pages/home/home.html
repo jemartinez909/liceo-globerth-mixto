@@ -93,23 +93,11 @@
         <div class="carousel-slide" *ngFor="let s of slides; let i = index" [class.active]="currentIndex === i">
           <img [src]="s.src" [alt]="s.alt">
         </div>
-
         <!-- Botones (tipo button para evitar submit) -->
         <button type="button" class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
         <button type="button" class="carousel-button next" (click)="nextSlide()">&#10095;</button>
-
-        <!-- Indicadores opcionales -->
-        <div class="carousel-indicators" *ngIf="slides.length > 1">
-          <button
-            type="button"
-            class="indicator"
-            *ngFor="let _ of slides; let i = index"
-            [class.active]="currentIndex === i"
-            (click)="goToSlide(i)"
-            aria-label="Ir al slide {{i + 1}}">
-          </button>
-        </div>
       </div>
+      
     </div>
 
     <!-- Bloque de Juegos -->
@@ -151,13 +139,13 @@
   <!-- Sección Circulares -->
 <section class="section-circulares">
   <div class="title-section">
-    <h2>CIRCULARES</h2>
+    <h2>CIRCULARES INSTITUCIONALES</h2>
   </div>
 
   <div class="circulares-container">
     <!-- Contenedor Izquierdo -->
     <div class="circular-left">
-      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=600" alt="Imagen libreta">
+      <img src="assets/img/folders.png" alt="Imagen libreta">
     </div>
 
     <!-- Contenedor Derecho -->
@@ -174,6 +162,7 @@
         <button>
         Ver todas las circulares
         </button>
+        <img src="assets/img/arrow-black.png" style="width: 80px; height: auto; transform: rotate(540deg);">
       </a>
     </div>
   </div>
