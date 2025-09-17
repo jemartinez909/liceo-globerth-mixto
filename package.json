@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && sass src/sass dist/css",
-    "build:css": "sass src/sass dist/css",
-    "watch:css": "sass --watch src/sass dist/css",
+    "build": "ng build && sass src/sass dist/globerth/css",
+    "build:css": "sass src/sass dist/globerth/css",
+    "watch:css": "sass --watch src/sass dist/globerth/css",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:globerth": "node dist/globerth/server/server.mjs",
