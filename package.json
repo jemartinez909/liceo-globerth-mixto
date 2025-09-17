@@ -8,8 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:globerth": "node dist/globerth/server/server.mjs",
-    "preview": "http-server dist/globerth/browser -p 3000 -c-1",
-    "build:css": "sass src/sass:dist/css"
+    "preview": "http-server dist/globerth/browser -p 3000 -c-1"
   },
   "private": true,
   "dependencies": {
