@@ -39,5 +39,11 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "sass": "^1.92.1",
     "typescript": "~5.8.2"
+  },
+  
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10.0.0"
   }
+  
 }
