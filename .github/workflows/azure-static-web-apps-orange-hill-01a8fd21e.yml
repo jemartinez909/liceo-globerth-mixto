@@ -27,7 +27,7 @@ jobs:
         run: npm run build
         
       - name: Compile Sass
-        run: sass src/sass:dist/css
+        run: npm run build:css
       
       - name: Build And Deploy
         id: builddeploy
