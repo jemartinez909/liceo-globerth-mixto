@@ -26,8 +26,6 @@ jobs:
       - name: Build Angular App
         run: npm run build
         
-      - name: Compile Sass
-        run: npm run build:css
       
       - name: Build And Deploy
         id: builddeploy
