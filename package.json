@@ -10,7 +10,6 @@
     "serve:ssr:globerth": "node dist/globerth/server/server.mjs",
     "preview": "http-server dist/globerth/browser -p 3000 -c-1"
   },
-  
   "private": true,
   "dependencies": {
     "@angular/common": "^20.0.0",
