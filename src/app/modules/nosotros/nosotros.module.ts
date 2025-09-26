@@ -5,9 +5,11 @@ import { NosotrosRoutingModule } from './nosotros-routing.module';
 import { Main } from './pages/main/main';
 
 
+
 @NgModule({
   declarations: [
     Main
+    
   ],
   imports: [
     CommonModule,
