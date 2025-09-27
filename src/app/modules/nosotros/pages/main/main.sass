@@ -103,6 +103,38 @@ $black: #000000
             height: auto
             border-radius: 15px 15px 15px 0
             box-shadow: 0 4px 8px rgba(0,0,0,0.1)
+    .zoomable
+        cursor: pointer
+        transition: transform 0.2s
+        &:hover
+            transform: scale(1.05)
+    .image-modal
+        display: flex
+        position: fixed
+        z-index: 9999
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0,0,0,0.8)
+        justify-content: center
+        align-items: center
+
+        .modal-content
+            max-width: 90%
+            max-height: 90%
+            border-radius: 10px
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5)
+
+        .close
+            position: absolute
+            top: 20px
+            right: 30px
+            color: white
+            font-size: 40px
+            font-weight: bold
+            cursor: pointer
+
     // --- Responsive dentro de la sección ---
     @media (max-width: 768px)
         .content-section-1
@@ -169,7 +201,6 @@ $black: #000000
     gap: 1.5rem
     width: 100%
     max-width: 1200px
-    padding: 2rem
     margin: 0 auto
     overflow: hidden
     .row

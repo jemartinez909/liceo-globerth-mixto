@@ -103,6 +103,45 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.section-quienes .zoomable {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.section-quienes .zoomable:hover {
+  transform: scale(1.05);
+}
+
+.section-quienes .image-modal {
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.section-quienes .image-modal .modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.section-quienes .image-modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .section-quienes .content-section-1 {
     grid-template-columns: 1fr;
@@ -175,7 +214,6 @@
   gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
-  padding: 2rem;
   margin: 0 auto;
   overflow: hidden;
 }

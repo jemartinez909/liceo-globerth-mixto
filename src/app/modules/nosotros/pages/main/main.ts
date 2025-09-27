@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -6,12 +6,16 @@ import { Component } from '@angular/core';
   templateUrl: './main.html',
   styleUrl: './main.sass'
 })
-export class Main {
+export class Main implements OnInit, OnDestroy {
 
   audio = new Audio('assets/audio/Himno L.G..mp3'); // tu archivo de audio
   isPlaying = false;
   progress = 0;
   currentTime = '0:00';
+
+  // --- Modal ---
+  isModalOpen = false;
+  modalImgSrc = '';
 
   togglePlayPause() {
     if (this.audio.paused) {
@@ -35,10 +39,29 @@ export class Main {
     });
   }
 
+  ngOnInit(): void {
+    // nada por ahora
+  }
+
+  ngOnDestroy(): void {
+    this.audio.pause();
+    this.audio.src = '';
+  }
+
   seek(event: Event) {
     const input = event.target as HTMLInputElement;
     const value = Number(input.value);
     this.audio.currentTime = (value / 100) * this.audio.duration;
   }
 
+  // --- Funciones del modal ---
+  openModal(imgSrc: string) {
+    this.modalImgSrc = imgSrc;
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    this.modalImgSrc = '';
+  }
 }

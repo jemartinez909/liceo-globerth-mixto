@@ -17,7 +17,7 @@
               <div class="image-grid">
                 <!-- Imagen de la fundadora-->
                   <div class="image-box small">
-                      <img src="assets/img/fundadora-lgb.webp" alt="Imagen del colegio-3">
+                      <img class="zoomable" (click)="openModal('assets/img/ejemplo.jpg')" src="assets/img/fundadora-lgb.webp" alt="Fundadora">
                   </div>
                   
                   <!-- Imagen de la Virgen y la zona verde-->
@@ -45,31 +45,36 @@
                   la labor iniciada; motivo por el cual la Señora <strong>Gloria Molano de Bulla</strong> dio inicio al grado 
                   primero y asumió la dirección del plantel
               </p>
-              <img class=" img-content" src="https://liceogloberth.edu.co/images/historia/1h.jpg">
+              <img class="zoomable" (click)="openModal('assets/img/ejemplo.jpg')" src="https://liceogloberth.edu.co/images/historia/1h.jpg">
               <p>
                   A partir de este año continúa funcionando el plantel en casetas prefabricadas bajo la dirección de <strong>Gloria Molano de Bulla</strong> e <strong>Inés Guerrero</strong> con el nombre de <strong>Liceo Globerth</strong>. Se tramita toda la documentación reglamentaria para la legalización del colegio ante el MEN y se obtiene por parte de la Secretaría de Educación, la Licencia de Funcionamiento No. 133 de junio 12 -1974 y el 4 de noviembre del mismo año la primera aprobación de estudios de los grados preescolar y de primero a quinto de primaria.
               </p>
-              <img class=" img-content"src="https://liceogloberth.edu.co/images/historia/2h.jpg"alt="nosotros-1"> 
+              <img class="zoomable" (click)="openModal('assets/img/ejemplo.jpg')" src="https://liceogloberth.edu.co/images/historia/2h.jpg"alt="nosotros-1"> 
               <p>
                   Con el transcurso del tiempo el plantel fue creciendo y a solicitud de los padres se inicia curso por curso el ciclo de básica secundaria de modalidad comercial, hasta obtener la legalización correspondiente.
               </p>
-              <img class=" img-content" src="https://liceogloberth.edu.co/images/historia/3h.jpg"alt="nosotros-1"> 
+              <img class="zoomable" (click)="openModal('assets/img/ejemplo.jpg')" src="https://liceogloberth.edu.co/images/historia/3h.jpg"alt="nosotros-1"> 
               <p>
                   la licencia de iniciación de labores para el nivel de Media Vocacional en 1996 fue aprobado dicho nivel y se entregó a la comunidad la primera promoción de 24 bachilleres Técnicos Comerciales quienes con los resultados obtenidos en los Exámenes de Estado dejaron clasificado al plantel dentro del grupo de colegios de alto puntaje a nivel Nacional; situación que se ha repetido año tras año.
               </p>
-              <img class=" img-content" src="https://liceogloberth.edu.co/images/historia/4h.jpg"alt="nosotros-1">
+              <img class="zoomable" (click)="openModal('assets/img/ejemplo.jpg')" src="https://liceogloberth.edu.co/images/historia/4h.jpg"alt="nosotros-1">
               <p>
                   Así continuó funcionando el plantel durante 20 años y en 1993 se inicia la construcción en firme de la nueva planta física, se pone en funcionamiento el grado décimo, obteniéndose de la Secretaría de Educación
               </p>
               <p>
                   Actualmente dando cumplimiento a la <strong>ley 115 de 1994</strong> y el Proyecto Educativo Institucional, el Liceo solicitó la asesoría del <strong>SENA</strong> para el nivel Técnico de la Educación Media Vocacional, y a partir de 1998 se dio comienzo a dicho programa para que los egresados, además de recibir su título de Bachiller Técnico Comercial, reciban también una certificación del <strong>SENA</strong> que los acredita como: <strong>"Digitador Recepcionista o Procesador de Datos Contables"</strong>, y de esta forma desempeñarse laboralmente en la empresa que los requiera. En el año 2007 se contó con una sola modalidad en el área de <strong>GESTIÓN CONTABLE Y FINANCIERA</strong>; para el 2008 se estableció convenio en la modalidad de <strong>NOMINA Y COMPENSACIÓN DE SALARIOS</strong>; en el año 2012 y debido a los excelentes resultados alcanzados por los y las estudiantes de la media técnica, el <strong>SENA</strong> brindó la posibilidad de establecer convenio para la modalidad llamada <strong>ASESORÍA COMERCIAL Y OPERACIONES DE ENTIDADES FINANCIERAS</strong>, la cual se viene trabajando hasta hoy.
               </p>
-              <img class=" img-content" src="https://liceogloberth.edu.co/images/historia/5h.jpg"alt="nosotros-1">
+              <img class="zoomable" (click)="openModal('assets/img/ejemplo.jpg')" src="https://liceogloberth.edu.co/images/historia/5h.jpg"alt="nosotros-1">
               <p>
                   A lo largo del convenio se han obtenido excelentes resultados, lo cual ha permitido que el SENA certifique a más del 90% de los bachilleres, teniendo la oportunidad de continuar sus estudios en el <strong>SENA</strong> y en universidades de acuerdo con su especialidad; siendo además ubicados laboralmente en la banca y en diferentes empresas de reconocida trayectoria en nuestro país. .
               </p>
-              <img class=" img-content" src="https://liceogloberth.edu.co/images/historia/6h.jpg" alt="nosotros-1">
+              <img class="zoomable" (click)="openModal('assets/img/ejemplo.jpg')" src="https://liceogloberth.edu.co/images/historia/6h.jpg" alt="nosotros-1">
               
+          </div>
+          <!-- Modal oculto -->
+          <div class="image-modal" *ngIf="isModalOpen" (click)="closeModal()">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <img class="modal-content" [src]="modalImgSrc" alt="Zoom">
           </div>
       </div>
   </section>
