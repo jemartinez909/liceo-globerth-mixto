@@ -64,4 +64,12 @@ export class Main implements OnInit, OnDestroy {
     this.isModalOpen = false;
     this.modalImgSrc = '';
   }
+
+  scrollTo(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  
 }

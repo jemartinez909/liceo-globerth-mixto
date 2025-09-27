@@ -3,7 +3,7 @@
 <nav>
   <div class="nav-container">
     <div class="logo">
-      <a href="#home"><img src="assets/img/logo-liceo.png" alt="Logo Liceo Globerth"></a>
+      <a (click)="scrollTo('inicio')" ><img src="assets/img/logo-liceo.png" alt="Logo Liceo Globerth"></a>
     </div>
      <button class="menu" (click)="toggleMenu()" [class.active]="menuAbierto" aria-label="Menu">
       <span></span>
@@ -14,7 +14,7 @@
       <ul>
         <!-- INICIO -->
         <li>
-          <a href="#home" routerLink="/inicio" routerLinkActive="active" (click)="cerrarMenu()" >
+          <a (click)="scrollTo('inicio')"  routerLink="/inicio" routerLinkActive="active" (click)="cerrarMenu()" >
             <svg width="25" height="25" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M30.6251 14.5833H27.7084V5.83333H29.1667V2.91667H5.83341V5.83333H7.29175V14.5833H4.37508C3.98831 14.5833 3.61737 14.737 3.34388 15.0105C3.07039 15.284 2.91675 15.6549 2.91675 16.0417V29.1667H32.0834V16.0417C32.0834 15.6549 31.9298 15.284 31.6563 15.0105C31.3828 14.737 31.0119 14.5833 30.6251 14.5833ZM20.4167 26.25V20.4167H14.5834V26.25H10.2084V5.83333H24.7917V26.25H20.4167Z" fill="#008001"/>
               <path d="M13.125 8.75H16.0417V11.6667H13.125V8.75ZM18.9583 8.75H21.875V11.6667H18.9583V8.75ZM13.125 14.5833H16.0417V17.5H13.125V14.5833ZM18.9583 14.5833H21.875V17.5H18.9583V14.5833Z" fill="#008001"/>
@@ -70,5 +70,7 @@
  <!--<a href="#" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
   <img src="https://img.freepik.com/vector-gratis/icono-redes-sociales-vector-instagram-7-junio-2021-bangkok-tailandia_53876-136728.jpg?semt=ais_hybrid&w=740&q=80" alt="Instagram" />
  </a>-->
-
+<a class="arriba" (click)="scrollTo('inicio')" > 
+  🎃
+</a>
 <router-outlet />

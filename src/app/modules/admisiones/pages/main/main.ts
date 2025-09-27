@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './main.sass'
 })
 export class Main {
-
+  scrollTo(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

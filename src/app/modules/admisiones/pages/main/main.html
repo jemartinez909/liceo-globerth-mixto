@@ -1,1 +1,31 @@
-<p>aDMISIONES lICEO gLOBERH</p>
+<main>
+    <div class="scroll-buttons">
+      <a (click)="scrollTo('admisiones')" class="btn-scroll">Admisiones</a>
+      <a (click)="scrollTo('proceso-inscripcion')" class="btn-scroll">Proceso de inscripción</a>
+      <a (click)="scrollTo('documentos')" routerLink="." fragment="emblema" class="btn-scroll">DOCUMENTOS DE INSCRIPCIÓN</a>
+    </div>
+    
+    <!-- Nosotros -->
+    <section  id="admisiones" class="section-quienes" style="background-color: white;">
+        <div class="title-section">
+            <h2>ADMISIONES</h2>
+        </div>
+        
+    </section>
+    
+    <section  id="proceso-inscripcion" class="mission-vision-section" style="background-color: white;">
+        <div class="title-section" >
+            <h2>PROCESO DE INSCRIPCIÓN</h2>
+        </div>
+        
+        
+      
+    </section>
+    <!-- Emblema -->
+    <section id="documentos" >
+      <div class="title-section" >
+        <h2>DOCUMENTOS DE INSCRIPCIÓN</h2>
+      </div>
+      
+    </section>
+  </main>
