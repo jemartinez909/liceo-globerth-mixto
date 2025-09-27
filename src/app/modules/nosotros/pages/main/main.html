@@ -1,4 +1,5 @@
-<main>
+<!--Nosotros-->
+<main style="background-image: url('https://images.pexels.com/photos/192136/pexels-photo-192136.jpeg?cs=srgb&dl=pexels-oleksandr-tiupa-53788-192136.jpg&fm=jpg'); ">
   <div class="scroll-buttons">
     <a href="#historia" class="btn-scroll">Historia</a>
     <a href="#visionmision" class="btn-scroll">Visión / Misión</a>
@@ -6,29 +7,34 @@
   </div>
   
   <!-- Nosotros -->
-  <section id="historia" class="section-quienes" >
+  <section  id="historia" class="section-quienes" style="background-color: white;">
+    <div class="title-section" id="historia" >
+      <h2>HISTORIA</h2>
+    </div>
       <!-- Imagenes -->
-      <div class="content-section-1">
+      <div class="content-section-1" >
           <div class="image-content">
               <div class="image-grid">
-                  <!-- Imagen de la Virgen y la zona verde-->
+                <!-- Imagen de la fundadora-->
                   <div class="image-box small">
-                      <img src="assets/img/img-3.jpg" alt="Imagen del colegio-3">
+                      <img src="assets/img/fundadora-lgb.webp" alt="Imagen del colegio-3">
                   </div>
+                  
                   <!-- Imagen de la Virgen y la zona verde-->
-                  <div class="image-box small">
-                      <img src="assets/img/img-3.jpg" alt="Imagen del colegio-3">
-                  </div>
+                  <!--<div class="image-box small">
+                      <img src="assets/img/foto-nosotros.webp" alt="Imagen del colegio-3">
+                  </div>-->
                   <!-- Imagen de la Virgen y la zona verde-->
-                  <div class="image-box large">
+                  <!--<div class="image-box large">
                       <img src="assets/img/img-1.jpg" alt="Ilustración_académica">
-                  </div>
+                  </div>-->
               </div>
+              <p><b>Bertha Cecilia Guerrero.<br>Fundadora</b></p>
           </div>
         <!-- Texto -->
           <div class="text-content">
               
-              <h2>ASÍ COMENZAMOS</h2>
+              <h3>ASÍ COMENZAMOS</h3>
           
               <p>
                   En una zona del municipio de Suba hoy parte del Distrito Capital, en el año 1972 nace 
@@ -68,9 +74,9 @@
       </div>
   </section>
   <!-- VISIÓN/ MISIÓN-->
-  <section id="visionmision" class="mission-vision-section" >
+  <section  id="visionmision" class="mission-vision-section" style="background-color: white;">
     <!-- Misión -->
-    <div class="folder mission-folder">
+    <div class="folder mission-folder" >
       <div class="folder-header">
           <h2>Misión</h2>
       </div>
@@ -93,72 +99,94 @@
     </div>
   </section>
   <!-- Emblema -->
-  <section id="emblema" style="background-color: #1c321f; ">
-    <div class="title-section">
+  <section id="emblema" >
+    <div class="title-section" >
       <h2 style="color: white;">EMBLEMA</h2>
     </div>
     <div class="parent">
-      <div class="div1">
-        <h3 class="subtitle-section">HIMNO</h3>
-        <P class="himno">
-          A la dulce y gentil fundadoraque un día con cristo se unió,hoy cantamos con dulce alegríaSiendo gratos al bien que nos dio (bis).A la dicha, al placer y al encanto,de esta alegre y querida mansión,entonemos unísono cantollena el alma de intensa emoción,Dulce nido de castos amores,de azucenas el riego pensil,cuán hermosas son todas las floresque recrean el alma infantil.Pura ciencia ilumina las mentes,Pura savia sentimos correr,Por nosotros formando las fuentesdo debemos amor al deber.¡Oh colegio por siempre querido!en ti el alma aprendió la virtudnuestra marcha será decididacon el lema:” Dios, Ciencia y virtud”.
-        </P>
+      <div class="row">
+        <div class="div1">
+          <h3 class="subtitle-section">HIMNO GLOBERIANO</h3>
+          <P class="himno">
+            A la dulce y gentil fundadora que un día con cristo se unió, hoy cantamos con dulce alegría siendo gratos al bien que nos dio (bis).
+            <br>
+            <br>
+            A la dicha, al placer y al encanto, de esta alegre y querida mansión, entonemos unísono canto llena el alma de intensa emoción, dulce nido de castos amores, de azucenas el riego pensil, cuán hermosas son todas las flores que recrean el alma infantil.
+            <br>
+            <br>
+            Pura ciencia ilumina las mentes, pura savia sentimos correr, por nosotros formando las fuentes, no debemos amor al deber.
+            <br>
+            <br>
+            <strong>¡Oh colegio por siempre querido!</strong> En ti el alma aprendió la virtud, nuestra marcha será decidida con el lema: "Dios, Ciencia y virtud”.
+          </P>
 
-        <!-- Reproductor personalizado -->
-        <div class="audio-player">
-          <!-- Imagen giratoria -->
-          <div class="disc" [class.spin]="isPlaying">
-            <img src="assets/img/dist-lgb.webp" alt="Himno Disc" />
+          <!-- Reproductor personalizado -->
+          <div class="audio-player">
+              <!-- Imagen giratoria -->
+              <div class="disc" [class.spin]="isPlaying">
+                <img src="assets/img/dist-lgb.webp" alt="Himno Disc" />
+              </div>
+              <!-- Controles -->
+              <div class="controls">
+                <button (click)="togglePlayPause()">
+                  <!-- SVG de play -->
+                  <svg *ngIf="!isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+            
+                  <!-- SVG de pause -->
+                  <svg *ngIf="isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                  </svg>
+                </button>
+                <!-- Slider -->
+                <input 
+                  type="range" 
+                  [value]="progress" 
+                  (input)="seek($event)" 
+                  max="100"
+                />
+                <!-- Tiempo actual -->
+                <span>{{ currentTime }}</span>
+              </div>
+              
           </div>
-        
-          <!-- Controles -->
-          <div class="controls">
-            <button (click)="togglePlayPause()">
-              {{ isPlaying ? '⏸️' : '▶️' }}
-            </button>
-        
-            <input 
-              type="range" 
-              [value]="progress" 
-              (input)="seek($event)" 
-              max="100"
-            />
-        
-            <span>{{ currentTime }}</span>
-          </div>
-        </div>
-        
-
-        <br>
-        <a href="https://www.youtube.com/watch?v=0H3ftlWNQVk" style="text-decoration: none; color: #1c321f;">Abrir en Youtube</a>
-        <br>
-        <p class="himno-datos">
-          <strong>Compuesto por:</strong><br>
-        Señora Gloría Molano de Bulla<br>
-        <strong>Música:</strong><br>
-        Fabio Rivas Gómez
-        <strong>Arreglos Musicales: </strong><br>
-        Harley Beltrán.
-        </p>
-      </div>
-      <div class="div2">
-        <h3 class="subtitle-section">ESCUDO</h3>
-        <div class="escudo-content">
-          <img src="assets/img/escudo_lgb.webp" alt="Escudo del colegio.">
-          <p>
-            Está constituido por las letras L y G iniciales del Liceo Globerth, sobre la L aparece una llama que representa el sentimiento vivo y ardiente del conocimiento. En la parte superior las palabras VIRTUD y CIENCIA, la palabra Virtud se toma como el poder o potestad de nuestros estudiantes para obrar con integridad y bondad de vida, desarrollar hábitos y disposiciones de la voluntad para actuar conforme a la ley moral. La palabra Ciencia es tomada como el conjunto de conocimientos acerca de un dominio determinado de objetos o fenómenos que son susceptibles de demostración, ante los cuales nuestros estudiantes asumen una posición activa para su construcción. En la parte inferior, 1974, año en el que el colegio abre sus puertas a la comunidad para contribuir con las expectativas educativas y culturales de esta.
+          
+          <br>
+          <a href="https://www.youtube.com/watch?v=0H3ftlWNQVk"><strong>Abrir en Youtube</strong></a>
+          <br>
+          <p class="himno-datos">
+            <strong>• Compuesto por:</strong><br>
+            <i>Señora Gloría Molano de Bulla.</i><br>
+            <strong>• Música:</strong><br>
+            <i>Fabio Rivas Gómez.</i><br>
+            <strong>• Arreglos Musicales: </strong><br>
+            <i>Harley Beltrán.</i>
           </p>
         </div>
+        <div class="div2">
+          <h3 class="subtitle-section">ESCUDO</h3>
+          <div class="escudo-content">
+            <img src="assets/img/escudo_lgb.webp" alt="Escudo del colegio.">
+            <p>
+              Está constituido por las letras <strong>L</strong> y <strong>G</strong> iniciales del Liceo Globerth, sobre la L aparece una llama que representa el sentimiento vivo y ardiente del conocimiento. 
+              En la parte superior las palabras <strong>VIRTUD</strong> y <strong>CIENCIA</strong>, la palabra Virtud se toma como el poder o potestad de nuestros estudiantes para obrar con integridad y bondad de vida, desarrollar hábitos y disposiciones de la voluntad para actuar conforme a la ley moral. 
+              La palabra Ciencia es tomada como el conjunto de conocimientos acerca de un dominio determinado de objetos o fenómenos que son susceptibles de demostración, ante los cuales nuestros estudiantes asumen una posición activa para su construcción. 
+              En la parte inferior, <strong>1974</strong>, año en el que el colegio abre sus puertas a la comunidad para contribuir con las expectativas educativas y culturales de esta.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="div3">
-        <h3 class="subtitle-section">BANDERA</h3>
-          <img src="bandera_lgb.webp" alt="Bandera del colegio.">
-      </div>
-      <div class="div4">
-        <h3 style="color:#7E650AFF;">MASCOTA</h3>
-        <img src="mascota_lgb.webp" alt="Mascota del colegio.">
+      <div class="row">
+        <div class="div3">
+          <h3 class="subtitle-section">BANDERA</h3>
+            <img src="assets/img/bandera-lgb.webp" alt="Bandera del colegio.">
+        </div>
+        <div class="div4">
+          <h3 style="color:#7E650AFF;">MASCOTA</h3>
+          <img src="mascota_lgb.webp" alt="Mascota del colegio.">
+        </div>
       </div>
     </div>
   </section>
 </main>
-

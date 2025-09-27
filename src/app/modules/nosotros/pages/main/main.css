@@ -28,6 +28,7 @@
 }
 
 .section-quienes {
+  margin-top: 80px;
   padding: 3rem 2rem;
 }
 
@@ -42,44 +43,31 @@
 }
 
 .section-quienes .image-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: "small1 small2" "large large";
-  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-quienes .image-grid .image-box {
   border-radius: .5rem;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 400px;
+  width: 100%;
 }
 
 .section-quienes .image-grid .image-box img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   display: block;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.521);
 }
 
-.section-quienes .image-grid .image-box.small:nth-child(1) {
-  grid-area: small1;
-  height: 150px;
-  border: 2px solid #008001;
-}
-
-.section-quienes .image-grid .image-box.small:nth-child(2) {
-  grid-area: small2;
-  height: 150px;
-  border: 2px solid #008001;
-}
-
-.section-quienes .image-grid .image-box.large {
-  grid-area: large;
-  height: 250px;
-  border: 2px solid #008001;
+.section-quienes .image-grid p {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #000000;
+  font-weight: bold;
 }
 
 .section-quienes .text-content {
@@ -94,12 +82,11 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.section-quienes .text-content h2 {
+.section-quienes .text-content h3 {
   text-align: left;
   align-items: center;
   margin-bottom: 1rem;
   color: #008001;
-  font-size: 1.5rem;
 }
 
 .section-quienes .text-content p {
@@ -118,7 +105,6 @@
 
 @media (max-width: 768px) {
   .section-quienes .content-section-1 {
-    margin-top: 80px;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     gap: 1.5rem;
@@ -184,24 +170,39 @@
 }
 
 .parent {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
   padding: 2rem;
   margin: 0 auto;
+  overflow: hidden;
 }
 
-.parent .div1 {
+.parent .row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.parent .row > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.parent .div1, .parent .div2, .parent .div3, .parent .div4 {
+  flex: 1 1 calc(50% - 1.5rem);
   background-color: #DAFFDB;
   border: 2px solid #008001;
   border-radius: 15px;
-  padding: 3rem;
+  padding: 2rem;
+  min-width: 280px;
+  box-sizing: border-box;
+}
+
+.parent .div1 {
+  flex: 1 1 100%;
   text-align: center;
-  grid-row: 1 / span 2;
-  grid-column: 1;
 }
 
 .parent .div1 .himno {
@@ -212,19 +213,82 @@
 .parent .div1 .audio-player {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #2c4a33;
-  padding: 10px 15px;
+  gap: 1.5rem;
+  padding: 15px;
   border-radius: 12px;
+  border: 3px solid #008001;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 1rem;
   color: white;
+  background: linear-gradient(270deg, #2a7b9b 0%, #57c785 50%, #eddd53 100%);
+  background-size: 600% 600%;
+  animation: gradientMove 15s ease infinite;
 }
 
-.parent .div1 .audio-player button:hover {
-  background: #a3892f;
+.parent .div1 .audio-player .disc {
+  width: 79px;
+  height: 79px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
+  flex-shrink: 0;
 }
 
-.parent .div1 .audio-player input[type="range"] {
+.parent .div1 .audio-player .disc img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.parent .div1 .audio-player .disc.spin img {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.parent .div1 .audio-player .controls {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+}
+
+.parent .div1 .audio-player .controls button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2d5a2e;
+  border: none;
+  color: white;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.parent .div1 .audio-player .controls button:hover {
+  background: #1c321f;
+}
+
+.parent .div1 .audio-player .controls svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.parent .div1 .audio-player .controls input[type="range"] {
   flex: 1;
   appearance: none;
   height: 4px;
@@ -233,29 +297,50 @@
   cursor: pointer;
 }
 
-.parent .div1 .audio-player span {
+.parent .div1 .audio-player .controls span {
   min-width: 50px;
   text-align: right;
   font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .parent .div1 .audio-player {
+    flex-direction: column;
+    text-align: center;
+  }
+  .parent .div1 .audio-player .disc {
+    margin-bottom: 1rem;
+  }
+  .parent .div1 .audio-player .controls {
+    flex-direction: column;
+    width: 100%;
+    gap: .5rem;
+  }
+  .parent .div1 .audio-player .controls input[type="range"] {
+    width: 100%;
+  }
 }
 
 .parent .div1 .himno-datos {
   text-align: left;
 }
 
-.parent .div2 {
-  background-color: #DAFFDB;
-  border: 2px solid #008001;
-  border-radius: 15px;
-  padding: 2rem;
-  grid-column: 2;
-  grid-row: 1;
-  max-width: 100%;
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .parent .div2 .escudo-content {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   align-items: flex-start;
   justify-content: center;
 }
@@ -264,6 +349,12 @@
   width: 250px;
   height: auto;
   flex-shrink: 0;
+  filter: drop-shadow(0 1px 20px rgba(0, 0, 0, 0.452));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.parent .div2 .escudo-content img:hover {
+  transform: translateY(-5px);
 }
 
 .parent .div2 .escudo-content p {
@@ -272,34 +363,51 @@
   margin: 0;
 }
 
-.parent .div3 {
-  background-color: #DAFFDB;
-  border: 2px solid #008001;
-  border-radius: 15px;
-  padding: 2rem;
-  grid-column: 2;
-  grid-row: 2;
-  text-align: center;
+.parent .div3, .parent .div4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.parent .div3 img, .parent .div4 img {
+  width: 250px;
+  height: auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.parent .div3 img:hover, .parent .div4 img:hover {
+  transform: translateY(-5px);
 }
 
 .parent .div4 {
   background-color: #FFDF87FF;
   border: 2px solid #E2B204;
-  border-radius: 15px;
-  padding: 2rem;
-  grid-column: 2;
-  grid-row: 2;
-  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .parent .div1 {
+    flex: 1 1 100%;
+  }
+  .parent .div2, .parent .div3, .parent .div4 {
+    flex: 1 1 calc(50% - 1.5rem);
+  }
 }
 
 @media (max-width: 768px) {
-  .parent {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 1rem;
+  .parent .row {
+    flex-direction: column;
   }
+}
+
+@media (max-width: 600px) {
   .parent .div1, .parent .div2, .parent .div3, .parent .div4 {
-    grid-column: 1 / -1;
-    grid-row: auto;
+    flex: 1 1 100%;
+    padding: 1.5rem;
+  }
+  .parent img {
+    max-width: 100%;
+    height: auto;
   }
 }

@@ -81,92 +81,88 @@
   </section>
   <!--////////////-->
   <!-- Galería y Juegos -->
-<section class="section-galeria" style="background-image: url('assets/img/mural-globerth-EstebanM-DiegoP.webp');">
-  <div class="container-galeria">
+  <section class="section-galeria" style="background-image: url('assets/img/mural-globerth-EstebanM-DiegoP.webp');">
+    <div class="container-galeria">
 
-    <!-- Bloque de Eventos -->
-    <div class="eventos">
-      <h2 class="title-section" style="color: white; ">NUESTROS EVENTOS</h2>
+      <!-- Bloque de Eventos -->
+      <div class="eventos">
+        <h2 class="title-section" style="color: white; ">NUESTROS EVENTOS</h2>
 
-      <div class="carousel-container" (mouseenter)="pause()" (mouseleave)="play()">
-        <!-- Slides mediante *ngFor -->
-        <div class="carousel-slide" *ngFor="let s of slides; let i = index" [class.active]="currentIndex === i">
-          <img [src]="s.src" [alt]="s.alt">
+        <div class="carousel-container" (mouseenter)="pause()" (mouseleave)="play()">
+          <!-- Slides mediante *ngFor -->
+          <div class="carousel-slide" *ngFor="let s of slides; let i = index" [class.active]="currentIndex === i">
+            <img [src]="s.src" [alt]="s.alt">
+          </div>
+          <!-- Botones (tipo button para evitar submit) -->
+          <button type="button" class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
+          <button type="button" class="carousel-button next" (click)="nextSlide()">&#10095;</button>
         </div>
-        <!-- Botones (tipo button para evitar submit) -->
-        <button type="button" class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
-        <button type="button" class="carousel-button next" (click)="nextSlide()">&#10095;</button>
+        
       </div>
-      
+
+      <!-- Bloque de Juegos -->
+      <div class="juegos">
+        <h2 class="title-section" style="color: white;">RINCÓN DE JUEGOS</h2>
+
+        <!-- Juego 1 -->
+        <div class="juego-card">
+          <img src="https://media.tenor.com/mcpNuaDanYwAAAAi/duck-ducky.gif" alt="Juego 1">
+          <div class="juego-info">
+            <h3>Memoria Matemática</h3>
+            <a href="https://example.com/juego1" target="_blank"> Jugar ahora </a>
+          </div>
+        </div>
+
+        <!-- Juego 2 -->
+        <div class="juego-card">
+          <img src="https://media.tenor.com/usCZ2sJkzoAAAAAi/cat-pixel.gif" alt="Juego 2">
+          <div class="juego-info">
+            <h3>Aventura de Palabras</h3>
+            <a href="https://example.com/juego2" target="_blank"> Jugar ahora </a>
+          </div>
+        </div>
+
+        <!-- Juego 3 -->
+        <div class="juego-card">
+          <img src="https://media.tenor.com/-8aBXr-_Rw4AAAAi/lulustickers.gif" alt="Juego 3">
+          <div class="juego-info">
+            <h3>Rompecabezas Interactivo</h3>
+            <a href="https://example.com/juego3" target="_blank"> Jugar ahora </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section-circulares">
+    <div class="title-section">
+      <h2>CIRCULARES INSTITUCIONALES</h2>
     </div>
 
-    <!-- Bloque de Juegos -->
-    <div class="juegos">
-      <h2 class="title-section" style="color: white;">RINCÓN DE JUEGOS</h2>
-
-      <!-- Juego 1 -->
-      <div class="juego-card">
-        <img src="https://media.tenor.com/mcpNuaDanYwAAAAi/duck-ducky.gif" alt="Juego 1">
-        <div class="juego-info">
-          <h3>Memoria Matemática</h3>
-          <a href="https://example.com/juego1" target="_blank"> Jugar ahora </a>
-        </div>
+    <div class="circulares-container">
+      <!-- Contenedor Izquierdo -->
+      <div class="circular-left">
+        <img src="assets/img/folders.png" alt="Imagen libreta">
       </div>
 
-      <!-- Juego 2 -->
-      <div class="juego-card">
-        <img src="https://media.tenor.com/usCZ2sJkzoAAAAAi/cat-pixel.gif" alt="Juego 2">
-        <div class="juego-info">
-          <h3>Aventura de Palabras</h3>
-          <a href="https://example.com/juego2" target="_blank"> Jugar ahora </a>
-        </div>
-      </div>
+      <!-- Contenedor Derecho -->
+      <div class="circular-right">
+        <h3>Últimas circulares</h3>
+        <img src="https://images.unsplash.com/photo-1581092918380-6b5ecae0a0f8?q=80&w=400" alt="Abeja">
 
-      <!-- Juego 3 -->
-      <div class="juego-card">
-        <img src="https://media.tenor.com/-8aBXr-_Rw4AAAAi/lulustickers.gif" alt="Juego 3">
-        <div class="juego-info">
-          <h3>Rompecabezas Interactivo</h3>
-          <a href="https://example.com/juego3" target="_blank"> Jugar ahora </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!--////////////-->
-  <!-- circulares -->
-  <!-- Sección Circulares -->
-<section class="section-circulares">
-  <div class="title-section">
-    <h2>CIRCULARES INSTITUCIONALES</h2>
-  </div>
-
-  <div class="circulares-container">
-    <!-- Contenedor Izquierdo -->
-    <div class="circular-left">
-      <img src="assets/img/folders.png" alt="Imagen libreta">
-    </div>
-
-    <!-- Contenedor Derecho -->
-    <div class="circular-right">
-      <h3>Últimas circulares</h3>
-      <img src="https://images.unsplash.com/photo-1581092918380-6b5ecae0a0f8?q=80&w=400" alt="Abeja">
-
-      <p>
-        Aquí encontrarás todas las circulares recientes de nuestro colegio. 
-        Mantente informado sobre eventos, comunicados importantes y novedades académicas.
-      </p>
-
-      <a href="https://www.servidor2.webcolegios.com/globerth/" class="btn-circular">
-        <button>
-        Ver todas las circulares
-        </button>
+        <p>
+          Aquí encontrarás todas las circulares recientes de nuestro colegio. 
+          Mantente informado sobre eventos, comunicados importantes y novedades académicas.
+        </p>
         <img src="assets/img/arrow-black.png" style="width: 80px; height: auto; transform: rotate(540deg);">
-      </a>
+        <a href="https://www.servidor2.webcolegios.com/globerth/" class="btn-circular">
+          <button>
+          Ver todas las circulares
+          </button>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
