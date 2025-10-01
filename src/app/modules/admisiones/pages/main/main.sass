@@ -13,6 +13,7 @@ $white: #FFFFFF
 $gray: #D9D9D9
 $black: #000000
 
+
 .scroll-buttons
     display: flex
     position: fixed
@@ -36,3 +37,199 @@ $black: #000000
         .btn-scroll
             padding: 0.3rem 0.7rem
             font-size: 0.8rem
+// ADMISIONES 
+.admisiones
+    display: flex
+    flex-direction: column  
+    width: 100%
+    max-width: 1200px
+    margin: 0 auto
+    overflow: hidden
+    margin-top: 80px
+    
+
+    .title-section
+        display: flex
+        alingn-items: center
+        text-align: center
+        gap: 1rem
+        margin: 0.5rem 0
+        &::before, &::after
+            content: ''
+            flex: 1
+            display: inline-block
+            width: 32vw
+            height: 3px
+            background: $green-primary
+            margin: 1rem
+            vertical-align: middle
+    
+    .contenido
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 2rem   // reducimos espacio entre texto y botón
+
+        .texto
+            flex: 3
+            text-align: left
+            animation: paneo-texto 1s ease-out forwards
+
+        .boton-pdf
+            flex: 1
+            text-align: right
+            animation: fade-boton 1s ease-out forwards
+
+            img
+                width: 15rem
+                cursor: pointer
+                transition: transform 0.3s
+
+                &:hover
+                    transform: scale(1.15) rotate(-3deg)
+
+// Animaciones
+@keyframes paneo-texto
+  from
+    opacity: 0
+    transform: translateX(-50px)
+  to
+    opacity: 1
+    transform: translateX(0)
+
+@keyframes fade-boton
+  from
+    opacity: 0
+    transform: translateY(30px) scale(0.9)
+  to
+    opacity: 1
+    transform: translateY(0) scale(1)
+
+.info-section
+    display: flex
+    justify-content: center
+    gap: 2rem
+    padding: 4rem 2rem
+    flex-wrap: wrap
+    .container
+        display: grid
+        justify-content: center
+        margin-inline: auto
+        grid-auto-flow: column
+        gap: 4rem
+        @media (width < 970px) 
+            grid-auto-flow: row
+        .info-card
+            display: flex
+            flex-direction: column
+            align-items: center
+            max-width: 300px
+            padding: 20px
+            background: #1C321F
+            background: linear-gradient(90deg,rgba(28, 50, 31, 1) 0%, rgba(45, 90, 46, 1) 50%)
+            border-radius: 15px
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2)
+            color: white
+            position: relative
+            min-height: 350px
+
+            .card-icon
+                width: 75px
+                height: 75px
+                background: linear-gradient(to bottom, #d4e2d4, #ffffff00)
+                backdrop-filter: blur(10px)
+                border-radius: 10px
+                position: absolute
+                top: -30px
+
+            .card-title
+                margin-top: 40px
+                text-align: center
+                text-transform: uppercase
+
+            .card-text
+                text-align: center
+                margin-top: 1rem
+                line-height: 1.5
+    .education-section
+        display: flex
+        justify-content: center
+        gap: 2rem
+        flex-wrap: wrap
+        padding: 4rem 2rem
+
+        .education-card
+            flex: 0 1 calc(50% - 1rem)
+            max-width: 500px
+            display: flex
+            flex-direction: column
+            border-radius: 0 0 0 15px
+            overflow: hidden
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2)
+            background: #E5E5E5
+
+        .card-image
+            width: 100%
+            height: 200px
+            overflow: hidden
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+
+        .card-content
+            padding: 2rem 1.5rem
+            display: flex
+            flex-direction: column
+            align-items: left
+
+        .card-header
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin-bottom: 1rem
+
+        .header-icon
+            width: 70px
+            height: auto
+
+        .card-title
+            text-align: left
+
+        .card-text
+            text-align: justify
+            line-height: 1.5
+    @media (max-width: 768px)
+        flex: 0 1 100%
+@media (max-width: 768px)
+    .admisiones
+        .title-section
+            display: flex
+            alingn-items: center
+            justify-content: center
+            text-align: center
+            gap: 1rem
+            margin: 20px
+            &::before, &::after
+                content: ''
+                flex: 1
+                display: inline-block
+                width: 20vw
+                height: 3px
+                background: $green-primary
+                margin: 1rem
+                vertical-align: middle
+            
+        .contenido
+            flex-direction: column
+            text-align: center
+            gap: 1.5rem
+
+        .texto
+            text-align: center
+            flex: unset
+
+        .boton-pdf
+            text-align: center
+            flex: unset

@@ -26,3 +26,162 @@
     font-size: 0.8rem;
   }
 }
+
+.admisiones {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.admisiones .title-section {
+  display: flex;
+  alingn-items: center;
+  text-align: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.admisiones .title-section::before, .admisiones .title-section::after {
+  content: '';
+  flex: 1;
+  display: inline-block;
+  width: 32vw;
+  height: 3px;
+  background: #008001;
+  margin: 1rem;
+  vertical-align: middle;
+}
+
+.admisiones .contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.admisiones .contenido .texto {
+  flex: 3;
+  text-align: left;
+  animation: paneo-texto 1s ease-out forwards;
+}
+
+.admisiones .contenido .boton-pdf {
+  flex: 1;
+  text-align: right;
+  animation: fade-boton 1s ease-out forwards;
+}
+
+.admisiones .contenido .boton-pdf img {
+  width: 15rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.admisiones .contenido .boton-pdf img:hover {
+  transform: scale(1.15) rotate(-3deg);
+}
+
+@keyframes paneo-texto {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-boton {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.info-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+}
+
+.info-section .info-card {
+  background: #1C321F;
+  background: linear-gradient(90deg, #1c321f 0%, #2d5a2e 50%);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: white;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  position: relative;
+  min-height: 350px;
+}
+
+.info-section .info-card .card-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to bottom, #d4e2d4, #ffffff00);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  position: absolute;
+  top: -30px;
+}
+
+.info-section .info-card .card-title {
+  margin-top: 40px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.info-section .info-card .card-text {
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .admisiones .title-section {
+    display: flex;
+    alingn-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    margin: 20px;
+  }
+  .admisiones .title-section::before, .admisiones .title-section::after {
+    content: '';
+    flex: 1;
+    display: inline-block;
+    width: 20vw;
+    height: 3px;
+    background: #008001;
+    margin: 1rem;
+    vertical-align: middle;
+  }
+  .admisiones .contenido {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .admisiones .texto {
+    text-align: center;
+    flex: unset;
+  }
+  .admisiones .boton-pdf {
+    text-align: center;
+    flex: unset;
+  }
+}

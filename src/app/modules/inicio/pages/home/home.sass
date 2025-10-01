@@ -9,6 +9,11 @@ $white: #FFFFFF
 $gray: #D9D9D9
 $black: #000000
     
+// Animación en los bordes
+@property --gradient-angle
+  syntax: "<angle>"
+  initial-value: 0turn
+  inherits: false
 .hero
   position: relative
   width: 100%
@@ -58,7 +63,17 @@ $black: #000000
         .title
           font-weight: bold
           color: $white
-
+          animation: slide-in-left 0.6s ease-out forwards
+          animation-delay: 0.6s
+          &:nth-of-type(2)
+            animation-delay: 0.8s
+        @keyframes slide-in-left
+          0%
+            opacity: 0
+            transform: translateX(-30px)
+          100%
+            opacity: 1
+            transform: translateX(0) 
         .subtitle
           font-weight: 500
           color: $white
@@ -259,38 +274,52 @@ $black: #000000
       justify-content: space-between
       gap: 1rem
       height: 100%
-
+      
       .juego-card
         display: flex
         align-items: center
         gap: 1rem
         padding: 1rem
-        background: rgba(255,255,255,0.08)
-        backdrop-filter: blur(6px)
         border-radius: 12px
-        border: 1px solid $gray
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3)
         transition: transform 0.2s ease, box-shadow 0.2s ease
-
+        animation: gradient-angle 4s linear infinite
+        border: 2px solid transparent
+        background-image: linear-gradient(#2d5a2e, #1c321f), conic-gradient(from var(--gradient-angle),
+          #2d5a2e 0%,
+          #008001 37%,
+          #a3d985 40%,
+          #008001 43%,
+          #2d5a2e 50%,
+          #2d5a2e 70%,
+          #008001 77%,
+          #a3d985 80%,
+          #008001 83%,
+          #2d5a2e 90%
+        )
+        background-origin: padding-box, border-box
+        background-clip: padding-box, border-box
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
         &:hover
           transform: translateY(-4px)
           box-shadow: 0 6px 12px rgba(0,0,0,0.4)
-
         img
           width: 75px
           height: 75px
           object-fit: cover
           border-radius: 10px
-
+          
         .juego-info
+
           h3
             margin: 0 0 0.3rem 0
           a
             color: $green-light
             text-decoration: none
             font-size: 0.95rem
-
-
+      // Animación para la rotación del gradiente
+      @keyframes gradient-angle
+        to
+          --gradient-angle: 1turn
 // Sección Circulares
 .section-circulares
   display: flex
@@ -387,7 +416,8 @@ $black: #000000
     opacity: 0.4
   to
     opacity: 1
-          
+
+
 @media (max-width: 768px)
   .hero
     padding: 1.5rem

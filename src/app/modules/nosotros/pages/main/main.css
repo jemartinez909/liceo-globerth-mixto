@@ -28,8 +28,13 @@
 }
 
 .section-quienes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
   margin-top: 80px;
-  padding: 3rem 2rem;
 }
 
 .section-quienes .content-section-1 {
@@ -171,7 +176,6 @@
   padding: 2rem;
   width: 100%;
   min-height: 100vh;
-  height: auto;
   overflow: hidden;
 }
 
@@ -181,7 +185,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   width: 550px;
   max-width: 1000px;
-  height: 200px;
+  height: 100%;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -447,5 +451,16 @@
   .parent img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-section {
+    display: flex;
+    alingn-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    margin: 20px;
   }
 }
