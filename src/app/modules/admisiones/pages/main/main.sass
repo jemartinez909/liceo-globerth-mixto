@@ -20,7 +20,7 @@ $black: #000000
     top: 4.5rem
     left: 2.8rem
     gap: 0.5rem
-    z-index: 1000
+    z-index: 4
 
     .btn-scroll
         background-color: $green-primary
@@ -40,14 +40,14 @@ $black: #000000
 // ADMISIONES 
 .admisiones
     display: flex
-    flex-direction: column  
+    flex-direction: column 
+    padding: 4rem 2rem
     width: 100%
     max-width: 1200px
     margin: 0 auto
     overflow: hidden
     margin-top: 80px
     
-
     .title-section
         display: flex
         alingn-items: center
@@ -126,7 +126,7 @@ $black: #000000
             max-width: 300px
             padding: 20px
             background: #1C321F
-            background: linear-gradient(90deg,rgba(28, 50, 31, 1) 0%, rgba(45, 90, 46, 1) 50%)
+            background: linear-gradient(90deg,#172919 0%, #354e35 50%)
             border-radius: 15px
             box-shadow: 0 4px 12px rgba(0,0,0,0.2)
             color: white
@@ -136,7 +136,7 @@ $black: #000000
             .card-icon
                 width: 75px
                 height: 75px
-                background: linear-gradient(to bottom, #d4e2d4, #ffffff00)
+                background: linear-gradient(to bottom, #A8B3A8FF, #FFFFFF3F)
                 backdrop-filter: blur(10px)
                 border-radius: 10px
                 position: absolute
@@ -145,28 +145,29 @@ $black: #000000
             .card-title
                 margin-top: 40px
                 text-align: center
+                letter-spacing: 2px
                 text-transform: uppercase
 
             .card-text
                 text-align: center
+                letter-spacing: 1px
                 margin-top: 1rem
                 line-height: 1.5
     .education-section
         display: flex
         justify-content: center
-        gap: 2rem
+        gap: 3rem
         flex-wrap: wrap
-        padding: 4rem 2rem
 
         .education-card
             flex: 0 1 calc(50% - 1rem)
             max-width: 500px
             display: flex
             flex-direction: column
-            border-radius: 0 0 0 15px
+            border-radius: 0 0 0 25px
             overflow: hidden
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2)
             background: #E5E5E5
+            background: linear-gradient(136deg,rgba(218, 255, 219, 1) 56%, rgba(234, 255, 150, 1) 100%)
 
         .card-image
             width: 100%
@@ -191,7 +192,7 @@ $black: #000000
             margin-bottom: 1rem
 
         .header-icon
-            width: 70px
+            width: 80px
             height: auto
 
         .card-title
@@ -200,8 +201,49 @@ $black: #000000
         .card-text
             text-align: justify
             line-height: 1.5
-    @media (max-width: 768px)
-        flex: 0 1 100%
+
+.document
+    display: flex
+    justify-content: center
+    margin: 0 auto
+    background: #1D331DFF
+    .cards
+        display: flex
+        gap: 1.5rem
+        align-items: stretch   // crucial: estira los hijos a la misma altura
+        flex-wrap: wrap       // se envuelven en pantallas pequeñas
+
+    .card
+        flex: 1 1 320px       
+        display: flex
+        flex-direction: column
+        border-radius: 0.5rem
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)
+        overflow: hidden
+        padding: 20px
+        background: #ffffff
+        min-height: 210px 
+        transition: transform 0.3s ease
+        &:hover
+            transform: translateY(-5)    // asegura una altura mínima; puedes ajustar
+
+        &__header
+            padding: 1rem
+            h3
+                color: $green-primary
+                text-align: center
+                line-height: 1.2
+        &__body
+            overflow: auto 
+            ul
+                list-style: disc inside
+                line-height: 1.5
+                li
+                    margin-bottom: 0.5rem    
+
+    
+            
+// Responsive    
 @media (max-width: 768px)
     .admisiones
         .title-section
@@ -233,3 +275,14 @@ $black: #000000
         .boton-pdf
             text-align: center
             flex: unset
+    .education-section
+        flex-direction: column
+        align-items: center
+    .document
+        flex-direction: column
+        align-items: center
+
+        .document-inscription
+            flex: 1 1 100%
+            max-width: 100%
+        

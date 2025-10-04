@@ -2,7 +2,7 @@
     <div class="scroll-buttons">
       <a (click)="scrollTo('admisiones')" class="btn-scroll">Admisiones</a>
       <a (click)="scrollTo('proceso-inscripcion')" class="btn-scroll">Proceso de inscripción</a>
-      <a (click)="scrollTo('documentos')" routerLink="." fragment="emblema" class="btn-scroll">DOCUMENTOS DE INSCRIPCIÓN</a>
+      <a (click)="scrollTo('documentos')" routerLink="." fragment="emblema" class="btn-scroll">Documentos de inscripción</a>
     </div>
     
     <!-- Nosotros -->
@@ -13,8 +13,9 @@
       <div class="contenido">
         <div class="texto">
           <p>
-            El <strong>Liceo Globerth Mixto</strong> recibe estudiantes entre 5 y 16 años de edad y se rige por una <i>POLÍTICA DE INCLUSIÓN</i> basada en la igualdad de Oportunidades y Diversidad, por tanto, nuestros alumnos son admitidos sin importar su raza, género, religión o diversidad física (el colegio admite estudiantes que requieran condiciones especiales para su proceso de aprendizaje, crecimiento y desarrollo, solo si los padres de familia tienen un seguimiento estricto con apoyo de especialistas para tratar sus necesidades).
-            No realiza proceso de admisión a candidatos que aspiren a grado once, salvo casos especiales que serán autorizados por Rectoría. (Lo anterior debido al carácter técnico comercial de la institución y el convenio con el SENA). 
+            El <strong>Liceo Globerth Mixto</strong> recibe estudiantes entre 5 y 16 años de edad y se rige por una <strong>POLÍTICA DE INCLUSIÓN</strong> basada en la igualdad de Oportunidades y Diversidad, por tanto, nuestros alumnos son admitidos sin importar su raza, género, religión o diversidad física (el colegio admite estudiantes que requieran condiciones especiales para su proceso de aprendizaje, crecimiento y desarrollo, solo si los padres de familia tienen un seguimiento estricto con apoyo de especialistas para tratar sus necesidades).
+            No realiza proceso de admisión a candidatos que aspiren a grado once, salvo casos especiales que serán autorizados por Rectoría.<br> 
+            (Lo anterior debido al carácter técnico comercial de la institución y el convenio con el SENA). 
           </p>
           <br>
           <p style="color: #2d5a2e; ">
@@ -42,7 +43,8 @@
           <div class="card-icon"></div>
           <h3 class="card-title">INFORMACIÓN</h3>
           <p class="card-text">
-            Los padres de familias interesados pueden acercarse a la secretaría del colegio de lunes a viernes de 8:00 am a 12:00 m. para darles a conocer el Proyecto Educativo y adquirir el formulario de inscripción.
+            Los padres de familia interesados pueden acercarse a la secretaría del colegio de lunes a viernes de 8:00 am a 12:00 m. 
+            para darles a conocer el Proyecto Educativo y adquirir el formulario de inscripción.
           </p>
         </div>
         <!-- 2 -->
@@ -82,7 +84,7 @@
           </div>
         </div>
         <!-- Primaria -->
-        <div class="education-card">
+        <div class="education-card" style=" background: #E5E5E5; background: linear-gradient(136deg,rgba(218, 255, 219, 1) 56%, rgba(181, 230, 255, 1) 100%) ">
           <div class="card-image">
             <img src="assets/img/PRIMARIA (1).webp" alt="Nivel Preescolar">
           </div>
@@ -98,7 +100,7 @@
           </div>
         </div>
         <!-- Basica -->
-        <div class="education-card">
+        <div class="education-card" style=" background: #E5E5E5; background: linear-gradient(136deg,rgba(218, 255, 219, 1) 56%, rgba(218, 255, 219, 1) 56%, rgba(255, 223, 171, 1) 100%);">
           <div class="card-image">
             <img src="assets/img/BASICA (1).webp" alt="Nivel Preescolar">
           </div>
@@ -114,7 +116,7 @@
           </div>
         </div>
         <!-- MEDI -->
-        <div class="education-card">
+        <div class="education-card" style=" background: #E5E5E5; background: linear-gradient(136deg,rgba(218, 255, 219, 1) 56%, rgba(186, 255, 158, 1) 100%); ">
           <div class="card-image">
             <img src="assets/img/MEDIA (1).webp" alt="Nivel Preescolar">
           </div>
@@ -132,11 +134,51 @@
       </div>
     </section>
     <!-- DOCUMENTOS DE INSCRIPCIÓN -->
-    <!--
-    <section id="documentos" >
+    
+    <section id="documentos" class="document">
       <div class="title-section" >
-        <h2>DOCUMENTOS DE INSCRIPCIÓN</h2>
+        <h2 style="color: white;">DOCUMENTOS DE INSCRIPCIÓN</h2>
       </div>
-      
-    </section>-->
+
+      <div class="cards">
+        <article class="card">
+          <header class="card__header">
+            <h3 >ESTUDIANTES NUEVOS</h3>
+          </header>
+
+          <div class="card__body">
+            <ul>
+            <li>Contrato de matrícula.</li>
+            <li>Pagaré.</li>
+            <li>Carta Anexa al pagaré.</li>
+            <li>Consentimiento informado.</li>
+            <li>Cancelación de los costos educativos de ingreso: matrícula y otros cobros 
+              (carne, agenda y seguro de accidentes).</li>
+            <li>Registro Civil de Nacimiento original o fotocopia autenticada.</li>
+            <li>Certificado de estudios expedido por el (los) colegio(s) donde haya cursado los grados anteriores.</li>
+            <li>Paz y Salvo por todo concepto del colegio anterior (Aplica únicamente para colegios privados).</li>
+            <li>Fotocopia del documento de identidad de los padres.</li>
+            <li>Fotocopia del documento de identidad del o la estudiante.</li>
+            <li>Tratamiento de datos, consentimiento informado por los padres.</li>
+          </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h3>ESTUDIANTES ANTIGUOS</h3>
+          </header>
+          <div class="card__body">
+            <ul>
+              <li>Contrato de matrícula.</li>
+              <li>Pagaré.</li>
+              <li>Carta Anexa al pagaré.</li>
+              <li>Consentimiento informado.</li>
+              <li>Cancelación de los costos educativos de ingreso: matrícula y otros cobros 
+                (carne, agenda y seguro de accidentes).</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
