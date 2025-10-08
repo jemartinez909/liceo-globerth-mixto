@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdmisionesRoutingModule } from './admisiones-routing.module';
 import { Main } from './pages/main/main';
-
+import { InicioModule } from '../inicio/inicio.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { Main } from './pages/main/main';
   ],
   imports: [
     CommonModule,
-    AdmisionesRoutingModule
+    AdmisionesRoutingModule,
+    InicioModule
   ]
 })
 export class AdmisionesModule { }

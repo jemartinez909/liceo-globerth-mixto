@@ -14,6 +14,9 @@ import { Footer } from '../../components/footer/footer';
   imports: [
     CommonModule,
     InicioRoutingModule
+  ],
+  exports: [
+    Footer // <- exportamos aquí
   ]
 })
 export class InicioModule { }

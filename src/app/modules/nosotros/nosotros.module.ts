@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { NosotrosRoutingModule } from './nosotros-routing.module';
 import { Main } from './pages/main/main';
+import { InicioModule } from '../inicio/inicio.module';
+
 
 
 
@@ -13,7 +15,8 @@ import { Main } from './pages/main/main';
   ],
   imports: [
     CommonModule,
-    NosotrosRoutingModule
+    NosotrosRoutingModule,
+    InicioModule
   ]
 })
 export class NosotrosModule { }
