@@ -90,12 +90,15 @@
 
         <div class="carousel-container" (mouseenter)="pause()" (mouseleave)="play()">
           <!-- Slides mediante *ngFor -->
-          <div class="carousel-slide" *ngFor="let s of slides; let i = index" [class.active]="currentIndex === i">
-            <img [src]="s.src" [alt]="s.alt">
+          <div class="carousel-track" [style.transform]="getTransform()">
+            <div class="carousel-slide" *ngFor="let s of slides; let i = index" [class.active]="currentIndex === i">
+              <img [src]="s.src" [alt]="s.alt">
+            </div>
           </div>
-          <!-- Botones (tipo button para evitar submit) -->
-          <button type="button" class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
-          <button type="button" class="carousel-button next" (click)="nextSlide()">&#10095;</button>
+            <!-- Botones (tipo button para evitar submit) -->
+            <button type="button" class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
+            <button type="button" class="carousel-button next" (click)="nextSlide()">&#10095;</button>
+          
         </div>
         
       </div>
@@ -133,7 +136,7 @@
       </div>
     </div>
   </section>
-  
+  <!-- Circulares -->
   <section class="section-circulares">
     <div class="title-section">
       <h2>CIRCULARES INSTITUCIONALES</h2>
@@ -142,19 +145,17 @@
     <div class="circulares-container">
       <!-- Contenedor Izquierdo -->
       <div class="circular-left">
-        <img src="assets/img/folders.png" alt="Imagen libreta">
+        <img src="assets/img/circulares.webp" alt="Imagen libreta">
       </div>
 
       <!-- Contenedor Derecho -->
       <div class="circular-right">
         <h3>Últimas circulares</h3>
-        <img src="https://images.unsplash.com/photo-1581092918380-6b5ecae0a0f8?q=80&w=400" alt="Abeja">
-
+        <!--<img src="https://images.unsplash.com/photo-1581092918380-6b5ecae0a0f8?q=80&w=400" alt="Abeja">-->
         <p>
           Aquí encontrarás todas las circulares recientes de nuestro colegio. 
           Mantente informado sobre eventos, comunicados importantes y novedades académicas.
         </p>
-
           <a href="https://www.servidor2.webcolegios.com/globerth/" class="btn-circular">
             <button>
             Ver todas las circulares

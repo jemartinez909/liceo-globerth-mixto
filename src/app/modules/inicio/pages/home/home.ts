@@ -9,10 +9,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class Home implements OnInit, OnDestroy {
   slides = [
-    { src: 'https://liceogloberth.edu.co/images/galeria2/1.english%20club.jpg', alt: 'Evento 1' },
-    { src: 'https://liceogloberth.edu.co/images/galeria2/2.%20entreba%20boletines.jpg', alt: 'Evento 2' },
+    { src: 'assets/img/CARTEL-BIENVENIDA.png', alt: 'Evento 1' },
     { src: 'assets/img/admisiones.jpg', alt: 'Evento 3' },
-    { src: 'https://img.freepik.com/psd-gratis/fondo-celebracion-dia-san-valentin-3d_23-2150100004.jpg?semt=ais_hybrid&w=740&q=80', alt: 'Evento 4' }
+    { src: 'assets/img/cartel-octubre.png', alt: 'Evento 4' }
   ];
 
   currentIndex = 0;
@@ -60,4 +59,9 @@ export class Home implements OnInit, OnDestroy {
   goToSlide(i: number): void {
     this.currentIndex = i;
   }
+
+  getTransform(): string {
+    return `translateX(-${this.currentIndex * 100}%)`;
+  }
+
 }
