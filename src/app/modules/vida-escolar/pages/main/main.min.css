@@ -1,0 +1,1 @@
+.scroll-buttons{display:flex;position:fixed;top:5.5rem;left:2.8rem;gap:0.5rem;z-index:4}.scroll-buttons .btn-scroll{background-color:#008001;color:#fff;padding:0.5rem 1rem;border-radius:50px;text-decoration:none;transition:background 0.3s ease}.scroll-buttons .btn-scroll:hover{background-color:#004d01}
