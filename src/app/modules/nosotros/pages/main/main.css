@@ -1,7 +1,7 @@
 .scroll-buttons {
   display: flex;
   position: fixed;
-  top: 4.5rem;
+  top: 5.5rem;
   left: 2.8rem;
   gap: 0.5rem;
   z-index: 4;
@@ -23,7 +23,6 @@
 @media (max-width: 768px) {
   .scroll-buttons .btn-scroll {
     padding: 0.3rem 0.7rem;
-    font-size: 0.8rem;
   }
 }
 
@@ -169,25 +168,38 @@
 
 .mission-vision-section {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 4rem;
-  padding: 2rem;
   width: 100%;
-  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
+.mission-vision-section .row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mission-vision-section .row > div {
+  flex: 1;
+  min-width: 0;
+}
+
 .mission-vision-section .folder {
-  background-color: #FFDF87FF;
+  flex: 1 1 calc(50% - 1.5rem);
+  border-radius: 15px;
+  background: #FFDF87FF;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: 550px;
-  max-width: 1000px;
-  height: 100%;
-  overflow: hidden;
+  min-height: 350px;
+  position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: floating 4s ease-in-out infinite;
 }
 
 .mission-vision-section .folder:hover {
@@ -203,13 +215,35 @@
   border-radius: 0 0  15px 0;
   padding: 1rem;
   font-weight: bold;
-  border-bottom: 2px solid #ffd333;
 }
 
-.mission-vision-section .folder .folder-content {
+.mission-vision-section .folder p {
   text-align: center;
   margin: 1rem;
   line-height: 1.5;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 970px) {
+  .mission-vision-section .row {
+    margin: 10px auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .mission-vision-section .folder {
+    max-width: 90%;
+    min-height: auto;
+    animation-duration: 3.5s;
+  }
 }
 
 .parent {
