@@ -5,33 +5,35 @@
     </div>
 
     <!-- ACÁDEMICO PRO-->
-    <section id="academico">
+    <section id="academico" class="eventos-section">
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
+      
       <div class="title-section" >
-        <h2 style="color: white; "> ACÁDEMICO </h2>
+        <h2 style="color: #a3d985; "> ACÁDEMICO </h2>
       </div>
-    </section>
-    
 
-    <!-- BIENESTAR -->
-    <section id="bienestar" class="academico-section">
-      <div class="title-section" >
-        <h2 style="color: white; "> BIENESTAR </h2>
-      </div>
-      <div >
-        <div >
-          <p>
-            
-          </p>
-          <br>
-          <p>
-            
-          </p>
+      <div class="eventos-container">
+        <div class="col-botones">
+          <button
+            class="btn-academi"
+            *ngFor="let evento of eventos"
+            (click)="seleccionarEvento(evento)"
+            [class.activo]="evento === eventoSeleccionado"
+          >
+            {{ evento.titulo }}
+          </button>
         </div>
-    
-        <div >
-          
+
+        <div class="col-contenido">
+          <h3>{{ eventoSeleccionado.titulo }}</h3>
+          <p>{{ eventoSeleccionado.descripcion }}</p>
+          <img [src]="eventoSeleccionado.imagen" [alt]="eventoSeleccionado.titulo" />
         </div>
+
       </div>
+
     </section>
+
 </main>
-
