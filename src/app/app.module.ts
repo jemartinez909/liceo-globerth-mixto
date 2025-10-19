@@ -2,7 +2,6 @@ import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDete
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 
@@ -13,9 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-    
+    AppRoutingModule
     
   ],
   providers: [
