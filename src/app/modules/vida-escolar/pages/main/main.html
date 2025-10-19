@@ -1,10 +1,37 @@
 <main>
     <div class="scroll-buttons">
-      <a class="btn-scroll">Acádemico</a>
-      <a  class="btn-scroll">Bienestar</a>
+      <a class="btn-scroll" (click)="scrollTo('academico')">Acádemico</a>
+      <a  class="btn-scroll" (click)="scrollTo('bienestar')">Bienestar</a>
     </div>
-    <section>
-        <p>Estamos trabajando en esta sección</p>
+
+    <!-- ACÁDEMICO PRO-->
+    <section id="academico" class="contenedor-carrusel" >
+      <div class="title-section" >
+        <h2 style="color: white; "> ACÁDEMICO </h2>
+      </div>
+    </section>
+    
+
+    <!-- BIENESTAR -->
+    <section id="bienestar" class="academico-section">
+      <div class="title-section" >
+        <h2 style="color: white; "> BIENESTAR </h2>
+      </div>
+      <div >
+        <div >
+          <p>
+            
+          </p>
+          <br>
+          <p>
+            
+          </p>
+        </div>
+    
+        <div >
+          
+        </div>
+      </div>
     </section>
 </main>
 
