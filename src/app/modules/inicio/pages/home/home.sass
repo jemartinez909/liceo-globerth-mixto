@@ -7,6 +7,7 @@ $yellow-dark: #E2B204
 $yellow-light: #FFC800
 $white: #FFFFFF
 $gray: #D9D9D9
+$gray-darck: #444444
 $black: #000000
     
 // Animación en los bordes
@@ -120,15 +121,69 @@ $black: #000000
   max-width: 1200px
   align-content: center
   
-.text-section-1 
-  margin-bottom: 1rem
-  line-height: 1.6
-  color: #333
+.text-content-1
+  p
+    line-height: 1.6
+    margin-bottom: 1rem
+
+  .highlights
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    gap: 1.5rem
+    margin: 2rem 0
+
+    .highlight
+      text-align: center
+      align-items: center
+      padding: 1.5rem
+      border: 2px solid $green-primary
+      border-radius: 1rem
+      background: #DAFFDB
+      box-shadow: 0 6px 10px rgba(49, 49, 49, 0.1)
+      transition: transform .3s ease
+      &:hover
+        transform: translateY(-5px)
+
+      img
+        width: 50px
+        height: 50px
+        margin-bottom: .5rem
+
+      h4
+        color: $green-primary
+        font-size: 1.25rem
+        margin-bottom: .25rem
+
+      p
+        color: $black
+
+  .sena-partnership
+    display: flex
+    align-items: center
+    gap: 1rem
+    margin-top: 2rem
+    border-left: 4px solid $green-primary
+    padding-left: 1rem
+
+    img
+      width: 60px
+      height: 60px
+      object-fit: contain
+
+    .text
+      h4
+        margin: 0
+        color: $green-primary
+        font-size: 1.1rem
+      p
+        margin: 0
+        color: $black
+
 
 .image-content
   .image-grid
     display: grid
-    grid-template-areas: "large small" "large small2"
+    grid-template-areas: "large large" "small small2"
     grid-template-columns: 1fr 1fr
     gap: 1rem
     position: relative
@@ -142,15 +197,18 @@ $black: #000000
 
       &.large
         grid-area: large
-        height: auto
+        height: 200px
         border: 2px solid $green-primary
+        background-color: $black
+        
+      &.small
+        background-color: $black
+        border: 3px solid $green-primary
+        height: 200px
         iframe
           width: 100%
           height: 100%
           object-fit: cover
-      &.small
-        border: 2px solid $green-primary
-        height: 200px
 
       img
         width: 100%
@@ -178,30 +236,6 @@ $black: #000000
         height: 70px
         object-fit: contain
         display: block
-// === Animaciones base ===
-@keyframes fade-up
-  from
-    opacity: 0
-    transform: translateY(50px)
-  to
-    opacity: 1
-    transform: translateY(0)
-
-@keyframes fade-left
-  from
-    opacity: 0
-    transform: translateX(-50px)
-  to
-    opacity: 1
-    transform: translateX(0)
-
-@keyframes fade-right
-  from
-    opacity: 0
-    transform: translateX(50px)
-  to
-    opacity: 1
-    transform: translateX(0)
 
 // === Estado inicial (oculto) ===
 .scroll-hidden
