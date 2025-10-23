@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './home.html',
   styleUrls: ['./home.sass']
 })
-export class Home implements OnInit, OnDestroy, AfterViewInit {
+export class Home implements OnInit, OnDestroy {
   slides = [
     { src: 'assets/img/CARTEL-BIENVENIDA.png', alt: 'Evento 1' },
     { src: 'assets/img/admisiones.jpg', alt: 'Evento 3' },
@@ -69,42 +69,5 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
   getTransform(): string {
     return `translateX(-${this.currentIndex * 100}%)`;
   }
-
-  // -------------------------
-  // SCROLL ANIMATIONS
-  // -------------------------
-  ngAfterViewInit(): void {
-  if (!this.isBrowser) return;
-
-  const elements = document.querySelectorAll('.scroll-hidden');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target as HTMLElement;
-
-          // Elimina cualquier animación previa
-          el.style.animation = '';
-
-          // Asigna animación según clase
-          if (el.classList.contains('title-section')) {
-            el.style.animation = 'fade-up 1s ease-out forwards';
-          } else if (el.classList.contains('text-section-1')) {
-            el.style.animation = 'fade-left 1s ease-out forwards';
-          } else if (el.classList.contains('image-content')) {
-            el.style.animation = 'fade-right 1s ease-out forwards';
-          }
-
-          el.classList.add('scroll-visible');
-          observer.unobserve(el);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  elements.forEach(el => observer.observe(el));
-}
 
 }
