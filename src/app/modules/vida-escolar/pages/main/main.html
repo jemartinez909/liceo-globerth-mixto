@@ -25,8 +25,10 @@
 
         <div class="col-contenido">
             <h3>{{ eventoSeleccionado.titulo }}</h3>
-            <p>{{ eventoSeleccionado.descripcion }}</p>
-          <img [src]="eventoSeleccionado.imagen" [alt]="eventoSeleccionado.titulo" />
+            <div class="content-horizontal">
+              <p>{{ eventoSeleccionado.descripcion }}</p>
+              <img [src]="eventoSeleccionado.imagen" [alt]="eventoSeleccionado.titulo" />
+            </div>
         </div>
 
       </div>
