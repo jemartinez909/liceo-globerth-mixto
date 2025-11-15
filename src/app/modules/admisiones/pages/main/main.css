@@ -1,10 +1,10 @@
 .scroll-buttons {
   display: flex;
   position: fixed;
-  top: 4.5rem;
+  top: 5.5rem;
   left: 2.8rem;
   gap: 0.5rem;
-  z-index: 1000;
+  z-index: 4;
 }
 
 .scroll-buttons .btn-scroll {
@@ -30,30 +30,27 @@
 .admisiones {
   display: flex;
   flex-direction: column;
+  padding: 7.7rem 2rem 4rem;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 80px auto 0;
   overflow: hidden;
-  margin-top: 80px;
 }
 
 .admisiones .title-section {
   display: flex;
-  alingn-items: center;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin: 0.5rem 0;
+  margin: .5rem 0;
+  text-align: center;
 }
 
 .admisiones .title-section::before, .admisiones .title-section::after {
-  content: '';
+  content: "";
   flex: 1;
-  display: inline-block;
-  width: 32vw;
   height: 3px;
   background: #008001;
-  margin: 1rem;
-  vertical-align: middle;
 }
 
 .admisiones .contenido {
@@ -78,7 +75,7 @@
 .admisiones .contenido .boton-pdf img {
   width: 15rem;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform .3s;
 }
 
 .admisiones .contenido .boton-pdf img:hover {
@@ -88,7 +85,7 @@
 @keyframes paneo-texto {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -99,7 +96,7 @@
 @keyframes fade-boton {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.9);
+    transform: translateY(25px) scale(0.9);
   }
   to {
     opacity: 1;
@@ -111,45 +108,302 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 4rem 2rem;
+  padding: 7.7rem 2rem 4rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
-.info-section .info-card {
-  background: #1C321F;
-  background: linear-gradient(90deg, #1c321f 0%, #2d5a2e 50%);
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  color: white;
-  max-width: 300px;
+.info-section .container {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 4rem;
+}
+
+@media (max-width: 970px) {
+  .info-section .container {
+    grid-auto-flow: row;
+  }
+}
+
+.info-section .container .info-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem;
-  position: relative;
+  padding: 20px;
+  max-width: 300px;
   min-height: 350px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: white;
+  background: linear-gradient(90deg, #172919 0%, #354e35 50%);
 }
 
-.info-section .info-card .card-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(to bottom, #d4e2d4, #ffffff00);
-  backdrop-filter: blur(8px);
+.info-section .container .info-card .card-icon {
+  width: 76px;
+  height: 76px;
   border-radius: 10px;
   position: absolute;
   top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #A8B3A8FF, #FFFFFF3F);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
 }
 
-.info-section .info-card .card-title {
+.info-section .container .info-card .card-title {
   margin-top: 40px;
   text-align: center;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-.info-section .info-card .card-text {
+.info-section .container .info-card .card-text {
   text-align: center;
+  letter-spacing: 1px;
   margin-top: 1rem;
   line-height: 1.5;
+}
+
+.info-section .education-section {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.info-section .education-section .education-card {
+  flex: 0 1 calc(50% - 1rem);
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 0 25px;
+  overflow: hidden;
+  background: linear-gradient(136deg, #daffdb 56%, #eaff96 100%);
+}
+
+.info-section .education-section .education-card .card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.info-section .education-section .education-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-section .education-section .education-card .card-content {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-section .education-section .education-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.info-section .education-section .education-card .header-icon {
+  width: 80px;
+  height: auto;
+}
+
+.info-section .education-section .education-card .card-title {
+  text-align: left;
+}
+
+.info-section .education-section .education-card .card-text {
+  text-align: justify;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .info-section .education-card {
+    flex: 1 1 100%;
+  }
+}
+
+.document {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 7.7rem;
+  width: 100%;
+  background: #224522;
+  background: linear-gradient(0deg, #143314 10%, #2d5a2e 29%, #008001 49%, #8cc68d 67%, white 94%);
+}
+
+.document .cards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  max-width: 1200px;
+  gap: 1.5rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.document .card {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.247);
+  border: 2px solid #008001;
+  overflow: hidden;
+  padding: 20px;
+  background: #ffffff;
+  min-height: 210px;
+  transition: transform 0.3s ease;
+}
+
+.document .card:hover {
+  transform: translateY(-5);
+}
+
+.document .card__header {
+  padding: 1rem;
+}
+
+.document .card__header h3 {
+  color: #008001;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.document .card__body {
+  overflow: auto;
+}
+
+.document .card__body ul {
+  font-family: "Anaheim", sans-serif;
+  font-size: 1.2rem;
+  list-style: disc inside;
+  line-height: 1.5;
+}
+
+.document .card__body ul li {
+  margin-bottom: 0.5rem;
+}
+
+.document .circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.document .circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+}
+
+.document .circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.document .circles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.document .circles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.document .circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.document .circles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.document .circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.document .circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.document .circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.document .circles li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.document .circles li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -183,5 +437,17 @@
   .admisiones .boton-pdf {
     text-align: center;
     flex: unset;
+  }
+  .education-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .document {
+    flex-direction: column;
+    align-items: center;
+  }
+  .document .document-inscription {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }

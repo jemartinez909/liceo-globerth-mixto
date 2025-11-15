@@ -44,52 +44,55 @@ $black: #000000
             font-size: 0.8rem
 
 
+// ==================================================
+// EVENTOS SECTION — OPTIMIZADO
+// ==================================================
 .eventos-section
   display: flex
   flex-direction: column
-  //background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%)
-  background: white
-  overflow: hidden
-  position: relative // importante para posicionar las capas internas
   width: 100%
   min-height: 100vh
-  margin: 0 auto
-  margin-top: 80px
+  margin: 80px auto 0
   padding: 2rem
   gap: 2rem
-  // Contenedor general (botones + contenido)
+  background: white
+  position: relative
+  overflow: hidden
+
+  // ------------------------------------------------
+  // CONTENEDOR GENERAL (BOTONES + CONTENIDO)
+  // ------------------------------------------------
   .eventos-container
     display: flex
     flex-direction: column
-    gap: 2rem
     width: 100%
+    gap: 2rem
 
-    // Columna izquierda: botones
+    // --------------------------------------------
+    // COLUMNA IZQUIERDA — BOTONES
+    // --------------------------------------------
     .col-botones
       display: flex
       flex-direction: row
-      justify-content: flex-start
       align-items: stretch
       gap: 1rem
       min-width: 250px
+      padding: 1.5rem
       background: $green-primary
-      border: 1px solid rgba(255, 255, 255, 0.3)
+      border-radius: 1rem
+      border: 1px solid rgba(255,255,255,0.3)
       backdrop-filter: blur(10px)
       -webkit-backdrop-filter: blur(10px)
-      border-radius: 1rem
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1)
-      padding: 1.5rem
+      box-shadow: 0 0 15px rgba(0,0,0,0.1)
 
       .btn-academi
         background: transparent
         border: none
-        border-bottom: 2px solid transparent
         padding: 1rem
-        letter-spacing: 0.05rem
         cursor: pointer
-        transition: all 0.3s ease
-        text-align: center
-        border-radius: 0
+        border-bottom: 2px solid transparent
+        letter-spacing: .05rem
+        transition: all .3s ease
         color: $green-light
 
         &:hover
@@ -99,51 +102,57 @@ $black: #000000
           border-bottom-color: $white
           color: $white
 
-    // Columna derecha: contenido dinámico
+    // --------------------------------------------
+    // COLUMNA DERECHA — CONTENIDO PRINCIPAL
+    // --------------------------------------------
     .col-contenido
       flex: 1
       display: flex
       flex-direction: column
       align-items: center
       justify-content: center
+      padding: 2rem
       gap: 2rem
-      background: rgba(255, 255, 255, 0.15)
-      border: 1px solid rgba(255, 255, 255, 0.3)
+      background: rgba(255,255,255,0.15)
+      border-radius: 1rem
+      border: 1px solid rgba(255,255,255,0.3)
       backdrop-filter: blur(10px)
       -webkit-backdrop-filter: blur(10px)
-      border-radius: 1rem
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1)
-      padding: 2rem
+      box-shadow: 0 0 15px rgba(0,0,0,0.1)
       flex-wrap: wrap
 
       h3
-        color: $green-primary
-        text-align: center
-        letter-spacing: 0.2rem
         width: 100%
+        text-align: center
+        letter-spacing: .2rem
+        color: $green-primary
 
+    // --------------------------------------------
+    // CONTENIDO HORIZONTAL LADO A LADO
+    // --------------------------------------------
     .contenido-horizontal
       display: flex
-      flex-direction: row          // ✅ Lado a lado
+      flex-direction: row
       align-items: flex-start
       justify-content: center
       gap: 2rem
       width: 100%
-      flex-wrap: wrap              // ✅ Para mobile sin romper
+      flex-wrap: wrap
 
       img
         flex: 1
         width: 100%
         max-width: 450px
-        border-radius: 0.8rem
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1)
+        border-radius: .8rem
+        box-shadow: 0 0 15px rgba(0,0,0,0.1)
 
       p
         flex: 1
+        max-width: 500px
+        text-align: left
         color: $black
         line-height: 1.6
-        text-align: left
-        max-width: 500px
+
 
 // Responsive
 @media (max-width: 768px)

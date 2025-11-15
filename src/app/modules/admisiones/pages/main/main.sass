@@ -37,63 +37,71 @@ $black: #000000
         .btn-scroll
             padding: 0.3rem 0.7rem
             font-size: 0.8rem
-// ADMISIONES 
+// =====================================
+// ADMISIONES — Optimizado
+// =====================================
 .admisiones
+  display: flex
+  flex-direction: column
+  padding: 7.7rem 2rem 4rem // top, sides, bottom
+  width: 100%
+  max-width: 1200px
+  margin: 80px auto 0
+  overflow: hidden
+
+  // -------------------------
+  // TÍTULO
+  // -------------------------
+  .title-section
     display: flex
-    flex-direction: column 
-    padding: 4rem 2rem
-    padding-top: 7.7rem
-    width: 100%
-    max-width: 1200px
-    margin: 0 auto
-    overflow: hidden
-    margin-top: 80px
-    
-    .title-section
-        display: flex
-        alingn-items: center
-        text-align: center
-        gap: 1rem
-        margin: 0.5rem 0
-        &::before, &::after
-            content: ''
-            flex: 1
-            display: inline-block
-            width: 32vw
-            height: 3px
-            background: $green-primary
-            margin: 1rem
-            vertical-align: middle
-    
-    .contenido
-        display: flex
-        align-items: center
-        justify-content: space-between
-        gap: 2rem   // reducimos espacio entre texto y botón
+    align-items: center
+    justify-content: center
+    gap: 1rem
+    margin: .5rem 0
+    text-align: center
 
-        .texto
-            flex: 3
-            text-align: left
-            animation: paneo-texto 1s ease-out forwards
+    &::before,
+    &::after
+      content: ""
+      flex: 1
+      height: 3px
+      background: $green-primary
 
-        .boton-pdf
-            flex: 1
-            text-align: right
-            animation: fade-boton 1s ease-out forwards
+  // -------------------------
+  // CONTENIDO
+  // -------------------------
+  .contenido
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 2rem
 
-            img
-                width: 15rem
-                cursor: pointer
-                transition: transform 0.3s
+    .texto
+      flex: 3
+      text-align: left
+      animation: paneo-texto 1s ease-out forwards
 
-                &:hover
-                    transform: scale(1.15) rotate(-3deg)
+    .boton-pdf
+      flex: 1
+      text-align: right
+      animation: fade-boton 1s ease-out forwards
 
-// Animaciones
+      img
+        width: 15rem
+        cursor: pointer
+        transition: transform .3s
+
+        &:hover
+          transform: scale(1.15) rotate(-3deg)
+
+
+// =====================================
+// ANIMACIONES
+// =====================================
 @keyframes paneo-texto
   from
     opacity: 0
-    transform: translateX(-50px)
+    transform: translateX(-40px)
   to
     opacity: 1
     transform: translateX(0)
@@ -101,251 +109,298 @@ $black: #000000
 @keyframes fade-boton
   from
     opacity: 0
-    transform: translateY(30px) scale(0.9)
+    transform: translateY(25px) scale(.9)
   to
     opacity: 1
     transform: translateY(0) scale(1)
-// Inscripciones
+
+// ==================================================
+// INSCRIPCIONES — OPTIMIZADO
+// ==================================================
 .info-section
-    display: flex
+  display: flex
+  justify-content: center
+  gap: 2rem
+  padding: 7.7rem 2rem 4rem
+  flex-wrap: wrap
+  width: 100%
+
+  // ----------------------------------------------
+  // CONTENEDOR PRINCIPAL (TARJETAS SUPERIORES)
+  // ----------------------------------------------
+  .container
+    display: grid
+    grid-auto-flow: column
     justify-content: center
-    gap: 2rem
-    padding: 4rem 2rem
-    padding-top: 7.7rem
-    flex-wrap: wrap
-    .container
-        display: grid
-        justify-content: center
-        margin-inline: auto
-        grid-auto-flow: column
-        gap: 4rem
-        @media (width < 970px) 
-            grid-auto-flow: row
-        .info-card
-            display: flex
-            flex-direction: column
-            align-items: center
-            max-width: 300px
-            padding: 20px
-            background: #1C321F
-            background: linear-gradient(90deg,#172919 0%, #354e35 50%)
-            border-radius: 15px
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2)
-            color: white
-            position: relative
-            min-height: 350px
-
-            .card-icon
-                display: flex
-                justify-content: center
-                align-items: center
-                width: 76px
-                height: 76px
-                background: linear-gradient(to bottom, #A8B3A8FF, #FFFFFF3F)
-                backdrop-filter: blur(10px)
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.445)
-                border-radius: 10px
-                position: absolute
-                top: -30px
-
-            .card-title
-                margin-top: 40px
-                text-align: center
-                letter-spacing: 2px
-                text-transform: uppercase
-
-            .card-text
-                text-align: center
-                letter-spacing: 1px
-                margin-top: 1rem
-                line-height: 1.5
-    .education-section
-        display: flex
-        justify-content: center
-        gap: 3rem
-        flex-wrap: wrap
-
-        .education-card
-            flex: 0 1 calc(50% - 1rem)
-            max-width: 500px
-            display: flex
-            flex-direction: column
-            border-radius: 0 0 0 25px
-            overflow: hidden
-            background: #E5E5E5
-            background: linear-gradient(136deg,rgba(218, 255, 219, 1) 56%, rgba(234, 255, 150, 1) 100%)
-
-        .card-image
-            width: 100%
-            height: 200px
-            overflow: hidden
-
-            img
-                width: 100%
-                height: 100%
-                object-fit: cover
-
-        .card-content
-            padding: 2rem 1.5rem
-            display: flex
-            flex-direction: column
-            align-items: left
-
-        .card-header
-            display: flex
-            justify-content: space-between
-            align-items: center
-            margin-bottom: 1rem
-
-        .header-icon
-            width: 80px
-            height: auto
-
-        .card-title
-            text-align: left
-
-        .card-text
-            text-align: justify
-            line-height: 1.5
-//Proceso de inscripción
-.document
-    position: relative
-    display: flex
-    justify-content: center
-    align-items: center
     margin: 0 auto
-    padding-top: 7.7rem
-    width: 100%
-    background: #224522
-    background: linear-gradient(0deg,rgba(20, 51, 20, 1) 10%, rgba(45, 90, 46, 1) 29%, rgba(0, 128, 1, 1) 49%, rgba(140, 198, 141, 1) 67%, rgba(255, 255, 255, 1) 94%)
-    .cards
-        position: relative
-        z-index: 2
-        display: flex
-        max-width: 1200px
-        gap: 1.5rem
-        align-items: stretch   // crucial: estira los hijos a la misma altura
-        flex-wrap: wrap       // se envuelven en pantallas pequeñas
+    gap: 4rem
 
-    .card
-        flex: 1 1 320px       
+    @media (max-width: 970px)
+      grid-auto-flow: row
+
+    .info-card
+      display: flex
+      flex-direction: column
+      align-items: center
+      padding: 20px
+      max-width: 300px
+      min-height: 350px
+      border-radius: 15px
+      position: relative
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2)
+      color: white
+      background: linear-gradient(90deg, #172919 0%, #354e35 50%)
+
+      .card-icon
+        width: 76px
+        height: 76px
+        border-radius: 10px
+        position: absolute
+        top: -30px
+        display: flex
+        justify-content: center
+        align-items: center
+        background: linear-gradient(to bottom, #A8B3A8FF, #FFFFFF3F)
+        box-shadow: 0 8px 15px rgba(0,0,0,0.45)
+        backdrop-filter: blur(10px)
+
+      .card-title
+        margin-top: 40px
+        text-align: center
+        letter-spacing: 2px
+        text-transform: uppercase
+
+      .card-text
+        text-align: center
+        letter-spacing: 1px
+        margin-top: 1rem
+        line-height: 1.5
+
+
+  // ----------------------------------------------
+  // SECCIÓN EDUCACIÓN (TARJETAS INFERIORES)
+  // ----------------------------------------------
+  .education-section
+    display: flex
+    justify-content: center
+    gap: 3rem
+    flex-wrap: wrap
+    width: 100%
+
+    .education-card
+      flex: 0 1 calc(50% - 1rem)
+      max-width: 500px
+      display: flex
+      flex-direction: column
+      border-radius: 0 0 0 25px
+      overflow: hidden
+      background: linear-gradient(136deg, rgba(218,255,219,1) 56%, rgba(234,255,150,1) 100%)
+
+      .card-image
+        width: 100%
+        height: 200px
+        overflow: hidden
+
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+
+      .card-content
+        padding: 2rem 1.5rem
         display: flex
         flex-direction: column
-        border-radius: 0.5rem
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.247)
-        border: 2px solid $green-primary
-        overflow: hidden
-        padding: 20px
-        background: #ffffff
-        min-height: 210px 
-        transition: transform 0.3s ease
-        &:hover
-            transform: translateY(-5)    // asegura una altura mínima; puedes ajustar
 
-        &__header
-            padding: 1rem
-            h3
-                color: $green-primary
-                text-align: center
-                line-height: 1.2
-        &__body
-            overflow: auto 
-            ul
-                font-family: "Anaheim", sans-serif
-                font-size: 1.2rem
-                list-style: disc inside
-                line-height: 1.5
-                li
-                    margin-bottom: 0.5rem              
-    .circles
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        overflow: hidden
-        z-index: 1
+      .card-header
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 1rem
+
+      .header-icon
+        width: 80px
+        height: auto
+
+      .card-title
+        text-align: left
+
+      .card-text
+        text-align: justify
+        line-height: 1.5
+
+
+// ==================================================
+// RESPONSIVE EXTRA
+// ==================================================
+@media (max-width: 600px)
+  .info-section .education-card
+    flex: 1 1 100%
+
+// ==================================================
+// PROCESO DE INSCRIPCIÓN — OPTIMIZADO
+// ==================================================
+.document
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  padding-top: 7.7rem
+  margin: 0 auto
+  background: linear-gradient(
+    0deg,
+    rgba(20,51,20,1) 10%,
+    rgba(45,90,46,1) 29%,
+    rgba(0,128,1,1) 49%,
+    rgba(140,198,141,1) 67%,
+    rgba(255,255,255,1) 94%
+  )
+
+  // ----------------------------------------------
+  // CONTENEDOR DE TARJETAS
+  // ----------------------------------------------
+  .cards
+    position: relative
+    z-index: 2
+    display: flex
+    flex-wrap: wrap
+    align-items: stretch
+    gap: 1.5rem
+    max-width: 1200px
+
+  // ----------------------------------------------
+  // TARJETAS
+  // ----------------------------------------------
+  .card
+    flex: 1 1 320px
+    display: flex
+    flex-direction: column
+    border-radius: 0.5rem
+    background: #fff
+    border: 2px solid $green-primary
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25)
+    padding: 20px
+    min-height: 210px
+    overflow: hidden
+    transition: transform .3s ease
+
+    &:hover
+      transform: translateY(-5px)
+
+    &__header
+      padding: 1rem
+
+      h3
+        text-align: center
+        line-height: 1.2
+        color: $green-primary
+
+    &__body
+      overflow: auto
+
+      ul
+        font-family: "Anaheim", sans-serif
+        font-size: 1.2rem
+        list-style: disc inside
+        line-height: 1.5
+
         li
-            position: absolute
-            display: block
-            list-style: none
-            width: 20px
-            height: 20px
-            background: rgba(255, 255, 255, 0.2)
-            animation: animate 25s linear infinite
-            bottom: -150px
-            &:nth-child(1)
-                left: 25%
-                width: 80px
-                height: 80px
-                animation-delay: 0s
-            &:nth-child(2)
-                left: 10%
-                width: 20px
-                height: 20px
-                animation-delay: 2s
-                animation-duration: 12s
+          margin-bottom: .5rem
 
-            &:nth-child(3)
-                left: 70%
-                width: 20px
-                height: 20px
-                animation-delay: 4s
 
-            &:nth-child(4)
-                left: 40%
-                width: 60px
-                height: 60px
-                animation-delay: 0s
-                animation-duration: 18s
+  // ----------------------------------------------
+  // CÍRCULOS ANIMADOS DE FONDO
+  // ----------------------------------------------
+  .circles
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow: hidden
+    z-index: 1
 
-            &:nth-child(5)
-                left: 65%
-                width: 20px
-                height: 20px
-                animation-delay: 0s
+    li
+      position: absolute
+      display: block
+      list-style: none
+      background: rgba(255,255,255,.2)
+      width: 20px
+      height: 20px
+      bottom: -150px
+      animation: animate 25s linear infinite
 
-            &:nth-child(6)
-                left: 75%
-                width: 110px
-                height: 110px
-                animation-delay: 3s
+      // Variantes de tamaño, posición y duración
+      &:nth-child(1)
+        left: 25%
+        width: 80px
+        height: 80px
 
-            &:nth-child(7)
-                left: 35%
-                width: 150px
-                height: 150px
-                animation-delay: 7s
+      &:nth-child(2)
+        left: 10%
+        width: 20px
+        height: 20px
+        animation-delay: 2s
+        animation-duration: 12s
 
-            &:nth-child(8)
-                left: 50%
-                width: 25px
-                height: 25px
-                animation-delay: 15s
-                animation-duration: 45s
+      &:nth-child(3)
+        left: 70%
 
-            &:nth-child(9)
-                left: 20%
-                width: 15px
-                height: 15px
-                animation-delay: 2s
-                animation-duration: 35s
+      &:nth-child(4)
+        left: 40%
+        width: 60px
+        height: 60px
+        animation-duration: 18s
 
-            &:nth-child(10)
-                left: 85%
-                width: 150px
-                height: 150px
-                animation-delay: 0s
-                animation-duration: 11s
-    @keyframes animate
-        0%
-            transform: translateY(0) rotate(0deg)
-            opacity: 1
-            border-radius: 0
-        100%
-            transform: translateY(-1000px) rotate(720deg)
-            opacity: 0
-            border-radius: 50%
+      &:nth-child(5)
+        left: 65%
+
+      &:nth-child(6)
+        left: 75%
+        width: 110px
+        height: 110px
+        animation-delay: 3s
+
+      &:nth-child(7)
+        left: 35%
+        width: 150px
+        height: 150px
+        animation-delay: 7s
+
+      &:nth-child(8)
+        left: 50%
+        width: 25px
+        height: 25px
+        animation-delay: 15s
+        animation-duration: 45s
+
+      &:nth-child(9)
+        left: 20%
+        width: 15px
+        height: 15px
+        animation-delay: 2s
+        animation-duration: 35s
+
+      &:nth-child(10)
+        left: 85%
+        width: 150px
+        height: 150px
+        animation-duration: 11s
+
+
+// ----------------------------------------------
+// ANIMACIÓN GLOBAL
+// ----------------------------------------------
+@keyframes animate
+  0%
+    transform: translateY(0) rotate(0deg)
+    opacity: 1
+    border-radius: 0
+  100%
+    transform: translateY(-1000px) rotate(720deg)
+    opacity: 0
+    border-radius: 50%
+
 // Responsive    
 @media (max-width: 768px)
     .admisiones

@@ -4,18 +4,47 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   selector: 'app-main',
   standalone: false,
   templateUrl: './main.html',
-  styleUrl: './main.sass'
+  styleUrls: ['./main.sass']
 })
 export class Main implements OnInit, OnDestroy {
 
-  audio = new Audio('assets/audio/Himno L.G..mp3'); // tu archivo de audio
+  audio = new Audio('assets/audio/himno-lg.mp3');
   isPlaying = false;
   progress = 0;
   currentTime = '0:00';
+  duration = 0;
 
-  // --- Modal ---
   isModalOpen = false;
   modalImgSrc = '';
+
+  constructor() {
+
+    // Se dispara cuando el audio ya conoce su duración
+    this.audio.addEventListener('loadedmetadata', () => {
+      this.duration = this.audio.duration;
+    });
+
+    // Se actualiza progreso y tiempo actual
+    this.audio.addEventListener('timeupdate', () => {
+      if (this.duration > 0) {
+        this.progress = (this.audio.currentTime / this.duration) * 100;
+      }
+
+      const minutes = Math.floor(this.audio.currentTime / 60);
+      const seconds = Math.floor(this.audio.currentTime % 60)
+        .toString()
+        .padStart(2, '0');
+
+      this.currentTime = `${minutes}:${seconds}`;
+    });
+
+    // Restablecer cuando termina
+    this.audio.addEventListener('ended', () => {
+      this.isPlaying = false;
+      this.progress = 0;
+      this.audio.currentTime = 0;
+    });
+  }
 
   togglePlayPause() {
     if (this.audio.paused) {
@@ -27,34 +56,22 @@ export class Main implements OnInit, OnDestroy {
     }
   }
 
-  constructor() {
-    this.audio.addEventListener('timeupdate', () => {
-      this.progress = (this.audio.currentTime / this.audio.duration) * 100;
+  seek(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const value = Number(input.value);
 
-      const minutes = Math.floor(this.audio.currentTime / 60);
-      const seconds = Math.floor(this.audio.currentTime % 60)
-        .toString()
-        .padStart(2, '0');
-      this.currentTime = `${minutes}:${seconds}`;
-    });
+    if (this.duration > 0) {
+      this.audio.currentTime = (value / 100) * this.duration;
+    }
   }
 
-  ngOnInit(): void {
-    // nada por ahora
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.audio.pause();
     this.audio.src = '';
   }
 
-  seek(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const value = Number(input.value);
-    this.audio.currentTime = (value / 100) * this.audio.duration;
-  }
-
-  // --- Funciones del modal ---
   openModal(imgSrc: string) {
     this.modalImgSrc = imgSrc;
     this.isModalOpen = true;
@@ -71,5 +88,5 @@ export class Main implements OnInit, OnDestroy {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-  
+
 }

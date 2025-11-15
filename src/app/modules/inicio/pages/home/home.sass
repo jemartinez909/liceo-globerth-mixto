@@ -106,302 +106,325 @@ $black: #000000
           width: auto
 
 // sección ¿Quiénes somos?
-.title-section 
+.title-section
   text-align: center
   margin-bottom: 2rem
-  
-  h2 
-    color: $green-primary
 
-.content-section-1 
+.title-section h2
+  color: $green-primary
+
+
+// === Contenido principal ===
+.content-section-1
   display: grid
   grid-template-columns: 1fr 1fr
   gap: 2rem
   width: 100%
   max-width: 1200px
   align-content: center
-  
-.text-content-1
-  p
-    line-height: 1.6
-    margin-bottom: 1rem
-
-  .highlights
-    display: grid
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
-    gap: 1.5rem
-    margin: 2rem 0
-
-    .highlight
-      text-align: center
-      align-items: center
-      padding: 1.5rem
-      border: 2px solid $green-primary
-      border-radius: 1rem
-      background: #DAFFDB
-      box-shadow: 0 6px 10px rgba(49, 49, 49, 0.1)
-      transition: transform .3s ease
-      &:hover
-        transform: translateY(-5px)
-
-      img
-        width: 50px
-        height: 50px
-        margin-bottom: .5rem
-
-      h4
-        color: $green-primary
-        font-size: 1.25rem
-        margin-bottom: .25rem
-
-      p
-        color: $black
-
-  .sena-partnership
-    display: flex
-    align-items: center
-    gap: 1rem
-    margin-top: 2rem
-    border-left: 4px solid $green-primary
-    padding-left: 1rem
-
-    img
-      width: 60px
-      height: 60px
-      object-fit: contain
-
-    .text
-      h4
-        margin: 0
-        color: $green-primary
-        font-size: 1.1rem
-      p
-        margin: 0
-        color: $black
 
 
-.image-content
-  .image-grid
-    display: grid
-    grid-template-areas: "large large" "small small2"
-    grid-template-columns: 1fr 1fr
-    gap: 1rem
-    position: relative
+// Texto principal
+.text-content-1 p
+  line-height: 1.6
+  margin-bottom: 1rem
 
-    .image-box
-      border-radius: .5rem
-      overflow: hidden
-      display: flex
-      align-items: center
-      justify-content: center
 
-      &.large
-        grid-area: large
-        height: 200px
-        border: 2px solid $green-primary
-        background-color: $black
-        
-      &.small
-        background-color: $black
-        border: 3px solid $green-primary
-        height: 200px
-        iframe
-          width: 100%
-          height: 100%
-          object-fit: cover
+// === Highlights ===
+.highlights
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+  gap: 1.5rem
+  margin: 2rem 0
 
-      img
-        width: 100%
-        height: 100%
-        object-fit: cover
-        display: block
+.highlight
+  text-align: center
+  padding: 1.5rem
+  border: 2px solid $green-primary
+  border-radius: 1rem
+  background: #DAFFDB
+  box-shadow: 0 6px 10px rgba(49, 49, 49, 0.1)
+  transition: transform .3s ease
 
-    .logo-circle
-      width: 100px
-      height: 100px
-      border-radius: 50%
-      overflow: hidden
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
-      border: 5px solid $white
-      background: $white
-      display: flex
-      align-items: center
-      justify-content: center
-      z-index: 2
-      img
-        width: 70px
-        height: 70px
-        object-fit: contain
-        display: block
+.highlight:hover
+  transform: translateY(-5px)
 
-// === Estado inicial (oculto) ===
+.highlight img
+  width: 50px
+  height: 50px
+  margin-bottom: .5rem
+
+.highlight h4
+  color: $green-primary
+  font-size: 1.25rem
+  margin-bottom: .25rem
+
+.highlight p
+  color: $black
+
+// === SENA partnership ===
+.sena-partnership
+  display: flex
+  align-items: center
+  gap: 1rem
+  margin-top: 2rem
+  border-left: 4px solid $green-primary
+  padding-left: 1rem
+
+.sena-partnership img
+  width: 60px
+  height: 60px
+  object-fit: contain
+
+.sena-partnership .text h4
+  margin: 0
+  color: $green-primary
+  font-size: 1.1rem
+
+.sena-partnership .text p
+  margin: 0
+  color: $black
+
+// === Imágenes ===
+.image-grid
+  display: grid
+  grid-template-areas: "large large" "small small2"
+  grid-template-columns: 1fr 1fr
+  gap: 1rem
+  position: relative
+
+.image-box
+  border-radius: .5rem
+  overflow: hidden
+  display: flex
+  align-items: center
+  justify-content: center
+
+.image-box.large
+  grid-area: large
+  height: 200px
+  border: 2px solid $green-primary
+  background-color: $black
+
+.image-box.small
+  background-color: $black
+  border: 3px solid $green-primary
+  height: 200px
+
+.image-box.small iframe
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+.image-box img
+  width: 100%
+  height: 100%
+  object-fit: cover
+  display: block
+
+// Logo centrado sobre imágenes
+.logo-circle
+  width: 100px
+  height: 100px
+  border-radius: 50%
+  overflow: hidden
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  border: 5px solid $white
+  background: $white
+  display: flex
+  align-items: center
+  justify-content: center
+  z-index: 2
+
+.logo-circle img
+  width: 70px
+  height: 70px
+  object-fit: contain
+  display: block
+// Animaciones de scroll
 .scroll-hidden
   opacity: 0
   visibility: hidden
   transform: translateY(30px)
   transition: all 0.8s ease-out
 
-// === Activo (cuando entra en scroll) ===
 .scroll-visible
   opacity: 1
   visibility: visible
   transform: translateY(0)
 
+// =========================
 // Sección galería
+// =========================
 .section-galeria
   padding: 3rem 1rem
   background-size: cover
   background-position: center
   color: $white
 
+// Contenedor general
+.container-galeria
+  display: flex
+  justify-content: center
+  align-items: stretch
+  max-width: 1200px
+  margin: 0 auto
+  gap: 2rem
+
+// Títulos
+.container-galeria .title-section
+  margin-bottom: 2rem
+  text-align: center
+
+// =========================
+// Carrusel
+// =========================
+.carousel-container
+  position: relative
+  overflow: hidden
+  border-radius: 16px
+
+.carousel-track
+  display: flex
+  flex: 1
+  max-width: 600px
+  position: relative
+  transition: transform 0.6s ease-in-out
+  will-change: transform
+
+.carousel-slide
+  flex: 0 0 100%
+  display: flex
+  height: 100%
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  position: relative
+  opacity: 0
+  transition: opacity 0.5s ease-in-out, transform 0.6s ease-in-out
+
+.carousel-slide.active
+  opacity: 1
+
+.carousel-slide img
+  width: 100%
+  height: 100%
+  object-fit: contain
+  object-position: center
+  border-radius: 25px
+  display: block
+
+
+// Botones del carrusel
+.carousel-button
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  background: transparent
+  color: $green-forest
+  border: none
+  padding: 0.4rem
+  cursor: pointer
+  border-radius: 50%
+  z-index: 20
+  user-select: none
+  transition: background 0.3s ease
+  font-size: 1.8rem
+
+.carousel-button:hover
+  color: $green-primary
+
+.carousel-button.prev
+  left: 0
+
+.carousel-button.next
+  right: 0
+
+// =========================
+// Lista de juegos
+// =========================
+.juegos
+  flex: 1
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  gap: 0.7rem
+  height: 100%
+
+.juego-card
+  display: flex
+  align-items: center
+  gap: 1rem
+  padding: 1rem
+  border-radius: 12px
+  transition: transform 0.2s ease, box-shadow 0.2s ease
+  animation: gradient-angle 4s linear infinite
+  border: 2px solid transparent
+  background-image: linear-gradient(#2d5a2e, #1c321f), conic-gradient(from var(--gradient-angle),
+    #2d5a2e 0%,
+    #008001 37%,
+    #a3d985 40%,
+    #008001 43%,
+    #2d5a2e 50%,
+    #2d5a2e 70%,
+    #008001 77%,
+    #a3d985 80%,
+    #008001 83%,
+    #2d5a2e 90%
+  )
+  background-origin: padding-box, border-box
+  background-clip: padding-box, border-box
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
+
+.juego-card:hover
+  transform: translateY(-4px)
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4)
+
+.juego-card img
+  width: 75px
+  height: 75px
+  object-fit: cover
+  border-radius: 10px
+
+.juego-info h3
+  margin: 0 0 0.3rem 0
+
+.juego-info a
+  color: $green-light
+  text-decoration: none
+  font-size: 0.95rem
+
+// =========================
+// Animación gradiente
+// =========================
+@keyframes gradient-angle
+  to
+    --gradient-angle: 1turn
+
+// =========================
+// Responsive (fuera del anidado)
+// =========================
+@media (max-width: 768px)
   .container-galeria
-    display: flex
-    justify-content: center
-    align-items: stretch
-    max-width: 1200px
-    margin: 0 auto
+    flex-direction: column
+    align-items: center
     gap: 2rem
 
-    // Responsive
-    @media (max-width: 768px)
-      flex-direction: column
-      align-items: center
-      gap: 2rem
+  .carousel-container
+    order: 1
+    width: 100%
 
-      // carrusel arriba, juegos abajo
-      .carousel-container
-        order: 1
-        width: 100%
-      .juegos
-        order: 2
-        width: 100%
+  .juegos
+    order: 2
+    width: 100%
 
-    .title-section
-      margin-bottom: 2rem
-      text-align: center
+@media (max-width: 468px)
+  .carousel-button
+    font-size: 1.6rem
 
-    // Carrusel de eventos
-    .carousel-container
-      position: relative
-      overflow: hidden
-      border-radius: 16px
-
-      .carousel-track
-        display: flex
-        flex: 1
-        max-width: 600px
-        position: relative
-        transition: transform 0.6s ease-in-out
-        will-change: transform
-
-      .carousel-slide
-        flex: 0 0 100%   // cada slide ocupa 100% del ancho del track
-        display: flex   
-        height: 100%  // permite alinear contenido interno (texto, imágenes, botones)
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        position: relative
-        opacity: 0
-        transition: opacity 0.5s ease-in-out, transform 0.6s ease-in-out
-
-        &.active
-          opacity: 1
-
-        img
-          width: 100%
-          height: 100%
-          object-fit: contain // No recorta la imagen
-          object-position: center
-          border-radius: 25px
-          display: block
-
-      .carousel-button
-        position: absolute
-        top: 50%
-        transform: translateY(-50%)
-        background: transparent
-        color: $green-forest
-        border: none
-        padding: 0.4rem
-        cursor: pointer
-        border-radius: 50%
-        z-index: 20
-        user-select: none
-        transition: background 0.3s ease
-        font-size: 1.8rem
-
-        &:hover
-          color: $green-primary
-
-        &.prev
-          left: 0
-        &.next
-          right: 0
-        
-        @media (max-width: 468px)
-          font-size: 1.6rem
-        
-
-    
-
-    // Lista de juegos
-    .juegos
-      flex: 1
-      display: flex
-      flex-direction: column
-      justify-content: space-between
-      gap: 0.7rem
-      height: 100%
-      
-      .juego-card
-        display: flex
-        align-items: center
-        gap: 1rem
-        padding: 1rem
-        border-radius: 12px
-        transition: transform 0.2s ease, box-shadow 0.2s ease
-        animation: gradient-angle 4s linear infinite
-        border: 2px solid transparent
-        background-image: linear-gradient(#2d5a2e, #1c321f), conic-gradient(from var(--gradient-angle),
-          #2d5a2e 0%,
-          #008001 37%,
-          #a3d985 40%,
-          #008001 43%,
-          #2d5a2e 50%,
-          #2d5a2e 70%,
-          #008001 77%,
-          #a3d985 80%,
-          #008001 83%,
-          #2d5a2e 90%
-        )
-        background-origin: padding-box, border-box
-        background-clip: padding-box, border-box
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
-        &:hover
-          transform: translateY(-4px)
-          box-shadow: 0 6px 12px rgba(0,0,0,0.4)
-        img
-          width: 75px
-          height: 75px
-          object-fit: cover
-          border-radius: 10px
-          
-        .juego-info
-
-          h3
-            margin: 0 0 0.3rem 0
-          a
-            color: $green-light
-            text-decoration: none
-            font-size: 0.95rem
-      // Animación para la rotación del gradiente
-      @keyframes gradient-angle
-        to
-          --gradient-angle: 1turn
 // Sección Circulares
 .section-circulares
   display: flex

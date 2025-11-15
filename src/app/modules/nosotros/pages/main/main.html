@@ -132,38 +132,38 @@
 
           <!-- Reproductor personalizado -->
           <div class="audio-player">
-              <!-- Imagen giratoria -->
-              <div class="disc" [class.spin]="isPlaying">
-                <img src="assets/img/dist-lgb.webp" alt="Himno Disc" />
-              </div>
-              <!-- Controles -->
-              <div class="controls">
-                <button (click)="togglePlayPause()">
-                  <!-- SVG de play -->
-                  <svg *ngIf="!isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-            
-                  <!-- SVG de pause -->
-                  <svg *ngIf="isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                  </svg>
-                </button>
-                <!-- Slider -->
-                <input 
-                  type="range" 
-                  [value]="progress" 
-                  (input)="seek($event)" 
-                  max="100"
-                />
-                <!-- Tiempo actual -->
-                <span>{{ currentTime }}</span>
-              </div>
-              
+
+            <div class="disc" [class.spin]="isPlaying">
+              <img src="assets/img/dist-lgb.webp" alt="Himno Disc" />
+            </div>
+
+            <div class="controls">
+
+              <button (click)="togglePlayPause()">
+                <!-- Play -->
+                <svg *ngIf="!isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+
+                <!-- Pause -->
+                <svg *ngIf="isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+              </button>
+
+              <input 
+                type="range" 
+                [value]="progress" 
+                (input)="seek($event)"
+                max="100"
+              />
+
+              <span>{{ currentTime }}</span>
+            </div>
           </div>
-          
+
           <br>
-          <a href="https://www.youtube.com/watch?v=0H3ftlWNQVk"><strong>Abrir en Youtube</strong></a>
+            <a href="https://www.youtube.com/watch?v=0H3ftlWNQVk"><strong>Abrir en Youtube</strong></a>
           <br>
           <p class="himno-datos">
             <strong>• Compuesto por:</strong><br>
@@ -187,6 +187,7 @@
           </div>
         </div>
       </div>
+      
       <div class="row">
         <div class="div3">
           <h3 class="subtitle-section">BANDERA</h3>
@@ -194,10 +195,11 @@
         </div>
         <div class="div4">
           <h3 style="color:#7E650AFF;">MASCOTA</h3>
-          <img src="mascota_lgb.webp" alt="Mascota del colegio.">
+          <!--<img src="mascota_lgb.webp" alt="Mascota del colegio.">-->
         </div>
       </div>
     </div>
   </section>
+  
 </main>
 <app-footer></app-footer>
