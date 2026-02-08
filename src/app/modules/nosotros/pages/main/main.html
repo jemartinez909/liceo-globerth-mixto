@@ -113,8 +113,10 @@
     <div class="title-section" >
       <h2 style="color: white;">EMBLEMA</h2>
     </div>
+
     <div class="parent">
       <div class="row">
+        <!-- Himno -->
         <div class="div1">
           <h3 class="subtitle-section">HIMNO GLOBERIANO</h3>
           <P class="himno">
@@ -129,36 +131,68 @@
             <br>
             <strong>¡Oh colegio por siempre querido!</strong> En ti el alma aprendió la virtud, nuestra marcha será decidida con el lema: "Dios, Ciencia y virtud”.
           </P>
-
           <!-- Reproductor personalizado -->
-          <div class="audio-player">
+          <div class="audio-player" [class.is-playing]="isPlaying">
+            <!-- Disco -->
+            <div class="disc">
 
-            <div class="disc" [class.spin]="isPlaying">
-              <img src="assets/img/dist-lgb.webp" alt="Himno Disc" />
+              <img src="assets/img/dist-lgb.webp" alt="Himno Disc">
+
+              <!-- Notas musicales -->
+              <div class="music-notes">
+                <span>♪</span>
+                <span>♫</span>
+                <span>♬</span>
+              </div>
+
             </div>
-
+            <!-- Controles -->
             <div class="controls">
+              <!-- PLAY -->
+              <button
+                class="play-btn"
+                (click)="togglePlayPause()"
+                aria-label="Reproducir himno"
+              >
 
-              <button (click)="togglePlayPause()">
-                <!-- Play -->
-                <svg *ngIf="!isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white">
-                  <path d="M8 5v14l11-7z"/>
+                <!-- PLAY -->
+                <svg *ngIf="!isPlaying"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="8,5 19,12 8,19" fill="white"/>
                 </svg>
 
-                <!-- Pause -->
-                <svg *ngIf="isPlaying" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white">
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+
+                <!-- PAUSE -->
+                <svg *ngIf="isPlaying"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                  <rect x="6" y="5" width="4" height="14" rx="1" fill="white"/>
+                  <rect x="14" y="5" width="4" height="14" rx="1" fill="white"/>
                 </svg>
+
               </button>
 
-              <input 
-                type="range" 
-                [value]="progress" 
-                (input)="seek($event)"
-                max="100"
-              />
+              <!-- Timeline -->
+              <div class="timeline">
 
-              <span>{{ currentTime }}</span>
+                <span class="time">
+                  {{ currentTime }}
+                </span>
+
+                <input
+                  class="progress"
+                  type="range"
+                  [value]="progress"
+                  (input)="seek($event)"
+                  max="100"
+                >
+
+                <!-- duración real (la agregaremos en TS luego) -->
+                <span class="time">
+                  {{ durationFormatted }}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -174,6 +208,8 @@
             <i>Harley Beltrán.</i>
           </p>
         </div>
+        
+        <!-- Escudo -->
         <div class="div2">
           <h3 class="subtitle-section">ESCUDO</h3>
           <div class="escudo-content">

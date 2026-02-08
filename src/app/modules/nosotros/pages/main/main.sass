@@ -26,6 +26,7 @@ $black: #000000
         color: #fff
         padding: 0.5rem 1rem
         border-radius: 50px
+        cursor: pointer
         text-decoration: none
         transition: background 0.3s ease
 
@@ -91,7 +92,6 @@ $black: #000000
   color: $black
   font-weight: bold
 
-
 // =======================
 // Contenido con scroll
 // =======================
@@ -121,7 +121,6 @@ $black: #000000
   height: auto
   border-radius: 15px 15px 15px 0
   box-shadow: 0 4px 8px rgba(0,0,0,0.1)
-
 
 // =======================
 // Modal para imágenes
@@ -160,7 +159,6 @@ $black: #000000
   font-weight: bold
   cursor: pointer
 
-
 // =======================
 // Responsive
 // =======================
@@ -195,7 +193,6 @@ $black: #000000
   margin: 0 auto
   overflow: hidden
 
-
 // ============================
 // Fila principal
 // ============================
@@ -210,7 +207,6 @@ $black: #000000
 .row > div
   flex: 1
   min-width: 0
-
 
 // ============================
 // Carpetas (folders)
@@ -243,10 +239,7 @@ $black: #000000
   margin: 1rem
   line-height: 1.5
 
-
-// ============================
 // Animación flotante
-// ============================
 @keyframes floating
   0%, 100%
     transform: translateY(0)
@@ -269,9 +262,8 @@ $black: #000000
     min-height: auto
     animation-duration: 3.5s
 
-// ==========================
+
 // Sección Emblemas
-// ==========================
 .parent
   display: flex
   flex-direction: column
@@ -306,10 +298,7 @@ $black: #000000
   min-width: 280px
   box-sizing: border-box
 
-
-// ==========================
 // DIV 1 — HIMNO
-// ==========================
 .div1
   flex: 1 1 100%
   text-align: center
@@ -318,90 +307,169 @@ $black: #000000
   text-align: center
   line-height: 1.6
 
+// AUDIO PLAYER
 .audio-player
   display: flex
   align-items: center
   gap: 1.5rem
-  padding: 15px
-  border-radius: 12px
+  padding: 18px
+  border-radius: 14px
   border: 3px solid $green-primary
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1)
-  margin-top: 1rem
-  color: white
-  background: linear-gradient(270deg, rgba(42,123,155,1) 0%, rgba(87,199,133,1) 50%, rgba(237,221,83,1) 100%)
-  background-size: 600% 600%
-  animation: gradientMove 15s ease infinite
-
-.disc
-  width: 79px
-  height: 79px
-  border-radius: 50%
+  margin-top: 1.2rem
+  position: relative
   overflow: hidden
-  border: 2px solid #fff
-  flex-shrink: 0
+  background: linear-gradient(270deg, #2A7B9B, #57C785, #EDDD53)
+  background-size: 400% 400%
+  animation: gradientMove 18s ease infinite
+  box-shadow: 0 10px 25px rgba(0,0,0,.18)
 
-.disc img
-  width: 100%
-  height: 100%
-  object-fit: cover
-  border-radius: 50%
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1)
+  // DISCO
+  .disc
+    width: 82px
+    height: 82px
+    border-radius: 50%
+    overflow: hidden
+    flex-shrink: 0
+    position: relative
 
-.disc.spin img
-  animation: spin 4s linear infinite
+    border: 3px solid white
+    box-shadow: 0 6px 18px rgba(0,0,0,.25)
+    transition: box-shadow .4s ease
 
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      border-radius: 50%
+      transition: transform .4s ease
+
+    // NOTAS
+    .music-notes
+      position: absolute
+      inset: 0
+      pointer-events: none
+      opacity: 0
+      span
+        position: absolute
+        color: white
+        font-size: 18px
+        animation: floatNote 2.5s ease-out infinite
+        &:nth-child(1)
+          left: -10px
+          top: 10px
+          animation-delay: .2s
+        &:nth-child(2)
+          right: -12px
+          top: 20px
+          animation-delay: .8s
+        &:nth-child(3)
+          left: 20px
+          bottom: -10px
+          animation-delay: 1.4s
+
+  // ESTADO PLAYING
+  &.is-playing
+    .disc
+      box-shadow: 0 0 18px rgba(255,255,255,.6), 0 0 30px rgba(163,217,133,.6)
+      img
+        animation: spin 6s linear infinite
+      .music-notes
+        opacity: 1
+
+  // CONTROLES
+  .controls
+    display: flex
+    align-items: center
+    gap: 1rem
+    width: 100%
+
+    // PLAY BUTTON
+    .play-btn
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 52px
+      height: 52px
+      flex-shrink: 0
+      border-radius: 50%
+      border: none
+      cursor: pointer
+      background: $green-forest
+      transition: transform .25s, box-shadow .3s, background .25s
+      box-shadow: 0 6px 14px rgba(0,0,0,.25)
+      &:hover
+        background: $green-dark
+        transform: scale(1.06)
+      &:active
+        transform: scale(.95)
+      svg
+        width: 24px
+        height: 24px
+        fill: white
+
+  // glow del botón cuando reproduce
+  &.is-playing
+    .play-btn
+      box-shadow: 0 0 12px rgba(255,255,255,.7)
+
+  // TIMELINE
+  .timeline
+    display: flex
+    align-items: center
+    gap: .6rem
+    width: 100%
+    .time
+      width: 46px
+      font-size: .85rem
+      font-weight: 600
+      color: white
+      text-align: center
+    .progress
+      flex: 1
+      height: 6px
+      appearance: none
+      border-radius: 6px
+      outline: none
+      cursor: pointer
+      background: rgba(255,255,255,.85)
+      &::-webkit-slider-thumb
+        appearance: none
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        background: $green-primary
+        cursor: pointer
+        box-shadow: 0 2px 6px rgba(0,0,0,.3)
+      &::-moz-range-thumb
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        background: $green-primary
+        border: none
+
+// ANIMACIONES
 @keyframes spin
   from
-    transform: rotate(0)
+    transform: rotate(0deg)
   to
     transform: rotate(360deg)
 
-.controls
-  display: flex
-  align-items: center
-  gap: 1rem
-  width: 100%
+@keyframes floatNote
+  0%
+    transform: translateY(0) scale(.8)
+    opacity: 0
 
-  button
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 45px
-    height: 45px
-    flex-shrink: 0
-    background: $green-forest
-    border-radius: 50%
-    border: none
-    cursor: pointer
-    transition: .3s
+  30%
+    opacity: 1
 
-    &:hover
-      background: $green-dark
-
-    svg
-      width: 22px
-      height: 22px
-      fill: white
-
-  input[type="range"]
-    flex: 1
-    height: 4px
-    appearance: none
-    border-radius: 4px
-    background: white
-    cursor: pointer
-
-  span
-    width: 50px
-    text-align: right
+  100%
+    transform: translateY(-35px) scale(1.2)
+    opacity: 0
 
 .himno-datos
   text-align: left
 
-
-// ==========================
 // Animación Gradiente
-// ==========================
 @keyframes gradientMove
   0%
     background-position: 0% 50%

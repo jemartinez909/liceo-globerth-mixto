@@ -12,7 +12,6 @@ $folder-shadow: rgba(0, 0, 0, 0.2)
 $folder-border-radius: 8px
 $white: #FFFFFF
 $gray: #D9D9D9
-$gray-darck: #4B4B4BFF
 $black: #000000
 
 * 
@@ -33,10 +32,11 @@ $black: #000000
         padding: 0.5rem 1rem
         border-radius: 50px
         text-decoration: none
+        cursor: pointer
         transition: background 0.3s ease
 
         &:hover
-            background-color: darken($green-primary, 10%)
+            background-color: $green-forest
 @media (max-width: 768px)
     .scroll-buttons
         .btn-scroll
@@ -44,41 +44,59 @@ $black: #000000
             font-size: 0.8rem
 
 
-// ==================================================
 // EVENTOS SECTION — OPTIMIZADO
-// ==================================================
 .eventos-section
   display: flex
   flex-direction: column
   width: 100%
   min-height: 100vh
-  margin: 80px auto 0
+  margin: 90px 0 0
   padding: 2rem
   gap: 2rem
-  background: white
   position: relative
   overflow: hidden
 
-  // ------------------------------------------------
+  // &::before
+  //   content: ""
+  //   position: absolute
+  //   inset: 0
+  //   background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyb_xwzTNyPEeKR2fdF_oNBk2ZGYhdWFVHMuR2i5V4VwmxKgyGg4vU2MjWlicAH-euneUCePIO06a3VUiOnMdExlswQKQsV9mPHbE2ZZpsV5QaAfoJfvEZlqgeK4tBhQ/s220/fotcole.JPG')
+  //   background-size: cover
+  //   background-position: center
+  //   background-repeat: no-repeat
+
+  //   filter: blur(4px)
+  //   transform: scale(1.1) // evita bordes blancos al hacer blur
+
+  //   z-index: 0
+
+  // &::after
+  //   content: ""
+  //   position: absolute
+  //   inset: 0
+  //   background: rgba(0,0,0,.55) // oscuridad elegante
+  //   z-index: 1
+
+
   // CONTENEDOR GENERAL (BOTONES + CONTENIDO)
-  // ------------------------------------------------
   .eventos-container
     display: flex
     flex-direction: column
     width: 100%
     gap: 2rem
+    position: relative
+    z-index: 2
 
-    // --------------------------------------------
     // COLUMNA IZQUIERDA — BOTONES
-    // --------------------------------------------
     .col-botones
       display: flex
       flex-direction: row
       align-items: stretch
       gap: 1rem
       min-width: 250px
-      padding: 1.5rem
-      background: $green-primary
+      padding: 3rem
+      background: #008001
+      background: radial-gradient(circle,rgba(0, 128, 1, 1) 8%, rgba(45, 90, 46, 1) 77%)
       border-radius: 1rem
       border: 1px solid rgba(255,255,255,0.3)
       backdrop-filter: blur(10px)
@@ -96,63 +114,74 @@ $black: #000000
         color: $green-light
 
         &:hover
-          border-bottom-color: #ccc
+          border-bottom-color: #a3d985
 
         &.activo
-          border-bottom-color: $white
+          border-bottom-color: #FFDF87FF
           color: $white
 
-    // --------------------------------------------
+    
     // COLUMNA DERECHA — CONTENIDO PRINCIPAL
-    // --------------------------------------------
     .col-contenido
       flex: 1
       display: flex
       flex-direction: column
       align-items: center
       justify-content: center
-      padding: 2rem
-      gap: 2rem
-      background: rgba(255,255,255,0.15)
+      padding: 2.5rem
+      min-height: 420px
+      gap: 2.5rem
+      background: rgba(255, 255, 255, 0.87)
+      backdrop-filter: blur(14px)
       border-radius: 1rem
       border: 1px solid rgba(255,255,255,0.3)
-      backdrop-filter: blur(10px)
-      -webkit-backdrop-filter: blur(10px)
-      box-shadow: 0 0 15px rgba(0,0,0,0.1)
-      flex-wrap: wrap
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12)
+      overflow: hidden 
 
-      h3
+      transition: min-height .45s cubic-bezier(.25,.8,.25,1), padding .35s ease, gap .35s ease, box-shadow .35s ease
+
+      .titulo
         width: 100%
         text-align: center
-        letter-spacing: .2rem
+        letter-spacing: .25rem
         color: $green-primary
+        font-size: clamp(1.6rem, 2.5vw, 2.3rem)
+        animation: slideDownSoft .7s ease forwards
 
-    // --------------------------------------------
-    // CONTENIDO HORIZONTAL LADO A LADO
-    // --------------------------------------------
-    .contenido-horizontal
-      display: flex
-      flex-direction: row
-      align-items: flex-start
-      justify-content: center
-      gap: 2rem
-      width: 100%
-      flex-wrap: wrap
-
-      img
-        flex: 1
+      .contenido-horizontal
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 3rem
         width: 100%
-        max-width: 450px
-        border-radius: .8rem
-        box-shadow: 0 0 15px rgba(0,0,0,0.1)
+        flex-wrap: wrap 
 
-      p
-        flex: 1
-        max-width: 500px
-        text-align: left
-        color: $black
-        line-height: 1.6
+        img
+          flex: 1
+          width: 100%
+          max-width: 470px
+          border-radius: 1rem
+          box-shadow: 0 15px 40px rgba(0,0,0,.18)
+          transition: transform .4s ease
 
+          &:hover
+            transform: scale(1.03)
+
+        p
+          flex: 1
+          max-width: 520px
+          text-align: justify
+          color: $black
+          line-height: 1.9
+
+@keyframes slideDownSoft
+  from
+    opacity: 0
+    transform: translateY(-30px)
+
+  to
+    opacity: 1
+    transform: translateY(0)
 
 // Responsive
 @media (max-width: 768px)
@@ -177,12 +206,9 @@ $black: #000000
           padding: 0.8rem
 
       .col-contenido
-        width: 100%
-        text-align: center
-        padding: 1.5rem
+        padding: 1.8rem
+        gap: 1.8rem
 
-        h3, p
-          text-align: left
-
-        img
-          max-height: 250px
+        .contenido-horizontal
+          flex-direction: column
+          gap: 2rem

@@ -3,7 +3,7 @@
       <a class="btn-scroll" (click)="scrollTo('academico')">Acádemico</a>
       <a  class="btn-scroll" (click)="scrollTo('bienestar')">Bienestar</a>
     </div>
-
+    <br>
     <!-- ACÁDEMICO PRO-->
     <section id="academico" class="eventos-section">
 
@@ -11,25 +11,35 @@
         <h2>ACÁDEMICO</h2>
       </div>
 
-      <div class="eventos-container">
-        <div class="col-botones">
+      <div class="eventos-container" >
+        <div  class="col-botones" [style.--bg-image]="'url(' + eventoSeleccionado.imagen + ')'">
           <button
             class="btn-academi"
             *ngFor="let evento of eventos"
             (click)="seleccionarEvento(evento)"
             [class.activo]="evento === eventoSeleccionado"
           >
+            <span class="icon"
+                [innerHTML]="evento.icono">
+          </span>
+
+          <span class="label">
             {{ evento.titulo }}
+          </span>
           </button>
         </div>
 
-        <div class="col-contenido">
-            <h3>{{ eventoSeleccionado.titulo }}</h3>
-            <div class="content-horizontal">
-              <p>{{ eventoSeleccionado.descripcion }}</p>
-              <img [src]="eventoSeleccionado.imagen" [alt]="eventoSeleccionado.titulo" />
+        <div class="col-contenido" >
+            <h3 class="titulo">{{ eventoSeleccionado.titulo }}</h3>
+
+            <div class="contenido-horizontal">
+                <img [src]="eventoSeleccionado.imagen"
+                    [alt]="eventoSeleccionado.titulo" />
+
+                <p>{{ eventoSeleccionado.descripcion }}</p>
             </div>
         </div>
+
 
       </div>
 
